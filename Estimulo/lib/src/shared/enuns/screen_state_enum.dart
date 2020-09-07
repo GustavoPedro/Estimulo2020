@@ -1,0 +1,1 @@
+enum ScreenStateEnum { INITIAL, LOADING, SUCCESS, ERROR, WARNING }
