@@ -1,4 +1,4 @@
-import 'package:Estimulo/src/modules/login/login_module.dart';
+import 'package:Estimulo/src/modules/cadastro/cadastro_module.dart';
 import 'package:Estimulo/src/modules/login/models/session_model.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -19,7 +19,8 @@ class AppModule extends MainModule {
 
   @override
   List<Router> get routers => [
-        Router(Modular.initialRoute, module: LoginModule()),
+        //Router(Modular.initialRoute, module: LoginModule()),
+        Router(Modular.initialRoute, module: CadastroModule())
       ];
 
   @override
