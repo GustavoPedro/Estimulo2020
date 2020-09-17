@@ -35,6 +35,7 @@ class TextFormRequired extends StatelessWidget {
       key: key,
       labelText: labelText + "*",
       obscureText: obscureText,
+      textEditingController: textEditingController,
       onEdit: onEdit,
       onSaved: onSaved,
       onValidate: (val) {
