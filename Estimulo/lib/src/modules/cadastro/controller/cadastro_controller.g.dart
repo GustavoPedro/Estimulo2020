@@ -25,8 +25,34 @@ mixin _$CadastroController on _CadastroControllerBase, Store {
     });
   }
 
+  final _$razaoSocialAtom = Atom(name: '_CadastroControllerBase.razaoSocial');
+
+  @override
+  String get razaoSocial {
+    _$razaoSocialAtom.reportRead();
+    return super.razaoSocial;
+  }
+
+  @override
+  set razaoSocial(String value) {
+    _$razaoSocialAtom.reportWrite(value, super.razaoSocial, () {
+      super.razaoSocial = value;
+    });
+  }
+
   final _$_CadastroControllerBaseActionController =
       ActionController(name: '_CadastroControllerBase');
+
+  @override
+  dynamic setRazaoSocial(String text) {
+    final _$actionInfo = _$_CadastroControllerBaseActionController.startAction(
+        name: '_CadastroControllerBase.setRazaoSocial');
+    try {
+      return super.setRazaoSocial(text);
+    } finally {
+      _$_CadastroControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
 
   @override
   dynamic nextPage() {
@@ -53,7 +79,8 @@ mixin _$CadastroController on _CadastroControllerBase, Store {
   @override
   String toString() {
     return '''
-companyDataPage: ${companyDataPage}
+companyDataPage: ${companyDataPage},
+razaoSocial: ${razaoSocial}
     ''';
   }
 }

@@ -1,3 +1,4 @@
+import 'package:Estimulo/src/modules/login/models/login_model.dart';
 import 'package:Estimulo/src/modules/login/models/session_state_model.dart';
 import 'package:Estimulo/src/modules/login/repository/login_repository.dart';
 import 'package:Estimulo/src/shared/enuns/screen_state_enum.dart';
@@ -11,20 +12,41 @@ abstract class _LoginControllerBase with Store {
   final LoginRepository _loginRepository;
 
   @observable
+  LoginModel loginModel = LoginModel();
+
+  @observable
   SessionStateEnum session = SessionStateEnum.INITIAL;
 
   @observable
   ScreenStateEnum screenStateEnum = ScreenStateEnum.INITIAL;
 
+  @observable
+  bool showPassword = false;
+
   _LoginControllerBase(this._loginRepository);
 
   @action
-  login(String username, String password) async {
+  setShowPassword() {
+    showPassword = !showPassword;
+  }
+
+  @action
+  setPassword(String text) {
+    loginModel.password = text;
+  }
+
+  @action
+  setUsername(String text) {
+    loginModel.userName = text;
+  }
+
+  @action
+  login() async {
     try {
       screenStateEnum = ScreenStateEnum.LOADING;
       bool isLogged =
           await _loginRepository.signIn(username: "Bune", password: "Cap");
-      print(isLogged);
+      isLogged = true;
       if (isLogged) {
         screenStateEnum = ScreenStateEnum.SUCCESS;
         session = SessionStateEnum.LOGIN_SUCCESS;

@@ -21,14 +21,14 @@ class _AuthenticationPageState extends State<AuthenticationPage> {
   void didChangeDependencies() {
     controller ??= LoginModule.to.get<LoginController>();
     super.didChangeDependencies();
-    //() => Modular.to.pushNamed('/home')
     _disposers ??= [
-      reaction(
-          (_) => controller.session,
-          (SessionStateEnum session) => {
-                if (session == SessionStateEnum.LOGIN_SUCCESS)
-                  {Modular.to.pushReplacementNamed('/home')}
-              })
+      reaction((_) {
+        return controller.session;
+      }, (SessionStateEnum session) {
+        if (session == SessionStateEnum.LOGIN_SUCCESS) {
+          Modular.to.pushReplacementNamed('/home');
+        }
+      })
     ];
   }
 
@@ -38,8 +38,10 @@ class _AuthenticationPageState extends State<AuthenticationPage> {
       body: Observer(builder: (_) {
         if (controller.session == SessionStateEnum.LOGGING) {
           return Center(child: CircularProgressIndicator());
-        } else {
+        } else if (controller.session == SessionStateEnum.INITIAL) {
           return LoginPage();
+        } else {
+          return CircularProgressIndicator();
         }
       }),
     );

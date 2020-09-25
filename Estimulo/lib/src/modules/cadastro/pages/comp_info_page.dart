@@ -1,7 +1,7 @@
 import 'package:Estimulo/src/modules/cadastro/controller/cadastro_controller.dart';
 import 'package:Estimulo/src/modules/cadastro/widgets/compinfo/dados_cadastrais_widget.dart';
 import 'package:Estimulo/src/modules/cadastro/widgets/compinfo/dados_contato_widget.dart';
-import 'package:Estimulo/src/modules/cadastro/widgets/compinfo/dados_emprestimo.dart';
+import 'package:Estimulo/src/modules/cadastro/widgets/compinfo/dados_emprestimo_widget.dart';
 import 'package:Estimulo/src/modules/cadastro/widgets/compinfo/dados_negocio_widget.dart';
 import 'package:Estimulo/src/modules/cadastro/widgets/compinfo/dados_pandemia_widget.dart';
 import 'package:Estimulo/src/modules/cadastro/widgets/compinfo/form_page.dart';
