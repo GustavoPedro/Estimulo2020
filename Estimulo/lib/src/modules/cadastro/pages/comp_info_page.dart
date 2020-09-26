@@ -7,14 +7,14 @@ import 'package:Estimulo/src/modules/cadastro/widgets/compinfo/dados_pandemia_wi
 import 'package:Estimulo/src/modules/cadastro/widgets/compinfo/form_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:flutter_modular/flutter_modular.dart';
+import 'package:get_it/get_it.dart';
 
 class CompInfoPage extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController faturamentoAntesCrise = TextEditingController();
   final TextEditingController setorAtuacao = TextEditingController();
   final CadastroController _cadastroController =
-      Modular.get<CadastroController>();
+      GetIt.I.get<CadastroController>();
 
   _buildFormPage(Widget widget) {
     return FormPageWidget(

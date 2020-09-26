@@ -1,32 +1,16 @@
-import 'package:Estimulo/src/modules/home/home_module.dart';
-import 'package:Estimulo/src/modules/login/login_module.dart';
 import 'package:Estimulo/src/modules/login/models/session_model.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
-import 'app_widget.dart';
+class AppModule {
+  static final _getIt = GetIt.instance;
 
-class AppModule extends MainModule {
-  @override
-  List<Bind> get binds => [
-        Bind((i) => SessionModel()),
-        Bind(
-          (i) => Dio(
-            BaseOptions(baseUrl: 'http://maximo.ddns:7001/maximo/oslc/os'),
-          ),
-        ),
-      ];
-
-  @override
-  List<Router> get routers => [
-        Router(Modular.initialRoute, module: LoginModule()),
-        Router("/home", module: HomeModule()),
-        //Router(Modular.initialRoute, module: CadastroModule())
-      ];
-
-  @override
-  Widget get bootstrap => AppWidget();
-
-  static Inject get to => Inject<AppModule>.of();
+  static void registerDependencies() {
+    _getIt.registerSingleton<SessionModel>(SessionModel());
+    _getIt.registerSingleton<Dio>(
+      Dio(
+        BaseOptions(baseUrl: 'http://maximo.ddns:7001/maximo/oslc/os'),
+      ),
+    );
+  }
 }

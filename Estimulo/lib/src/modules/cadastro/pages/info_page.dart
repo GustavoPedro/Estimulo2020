@@ -1,7 +1,7 @@
+import 'package:Estimulo/src/modules/cadastro/pages/user_info_page.dart';
 import 'package:Estimulo/src/modules/cadastro/widgets/terms_widget.dart';
 import 'package:Estimulo/src/shared/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 
 class InfoPage extends StatelessWidget {
   @override
@@ -9,6 +9,7 @@ class InfoPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Informações"),
+        automaticallyImplyLeading: false,
       ),
       body: SafeArea(
         child: Padding(
@@ -28,7 +29,12 @@ class InfoPage extends StatelessWidget {
                 children: [
                   FlatButton(
                     onPressed: () {
-                      Modular.to.pushNamed("/userinfo");
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => UserInfoPage(),
+                        ),
+                      );
                     },
                     child: Text(
                       "Sim",

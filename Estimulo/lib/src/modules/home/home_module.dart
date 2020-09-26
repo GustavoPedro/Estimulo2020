@@ -1,18 +1,11 @@
-import 'package:Estimulo/src/modules/home/pages/home_page.dart';
+import 'package:get_it/get_it.dart';
 
 import 'controllers/home_controller.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 
-class HomeModule extends ChildModule {
-  @override
-  List<Bind> get binds => [
-        Bind((i) => HomeController()),
-      ];
+class HomeModule {
+  static final _getIt = GetIt.instance;
 
-  @override
-  List<Router> get routers => [
-        Router('/', child: (_, args) => HomePage()),
-      ];
-
-  static Inject get to => Inject<HomeModule>.of();
+  static void registerDependencies() {
+    _getIt.registerFactory<HomeController>(() => HomeController());
+  }
 }

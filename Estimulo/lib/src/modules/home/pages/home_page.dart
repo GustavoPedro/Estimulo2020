@@ -1,9 +1,10 @@
-import 'package:Estimulo/src/modules/cadastro/cadastro_module.dart';
+import 'package:Estimulo/src/modules/cadastro/pages/info_page.dart';
 import 'package:Estimulo/src/modules/login/controllers/login_controller.dart';
 import 'package:Estimulo/src/modules/login/models/session_model.dart';
+import 'package:Estimulo/src/modules/login/pages/authentication_page.dart';
 import 'package:Estimulo/src/shared/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
+import 'package:get_it/get_it.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -15,8 +16,8 @@ class HomePage extends StatefulWidget {
 class _HomePage extends State<HomePage> {
   int _selectedIndex = 0;
 
-  LoginController _loginController = Modular.get<LoginController>();
-  SessionModel _sessionModel = Modular.get<SessionModel>();
+  LoginController _loginController = GetIt.I.get<LoginController>();
+  SessionModel _sessionModel = GetIt.I.get<SessionModel>();
 
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
@@ -41,7 +42,12 @@ class _HomePage extends State<HomePage> {
                   icon: Icon(Icons.exit_to_app),
                   onPressed: () {
                     _loginController.logout();
-                    Modular.to.pushReplacementNamed("/");
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AuthenticationPage(),
+                      ),
+                    );
                   }),
             ],
           ),
@@ -59,7 +65,7 @@ class _HomePage extends State<HomePage> {
           ),
         );
       case 1:
-        return RouterOutlet(module: CadastroModule());
+        return InfoPage();
       case 2:
         return Container(
           child: Center(

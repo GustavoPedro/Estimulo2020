@@ -1,5 +1,4 @@
 import 'package:Estimulo/src/modules/login/controllers/login_controller.dart';
-import 'package:Estimulo/src/modules/login/login_module.dart';
 import 'package:Estimulo/src/modules/login/widgets/login_loading.dart';
 import 'package:Estimulo/src/shared/enuns/screen_state_enum.dart';
 import 'package:Estimulo/src/shared/widgets/text_form_required.dart';
@@ -12,27 +11,26 @@ import 'login_button.dart';
 
 class LoginFormWidget extends StatefulWidget {
   final GlobalKey<FormState> _formKey;
-
-  const LoginFormWidget({
-    Key key,
-    @required GlobalKey<FormState> formKey,
-  })  : _formKey = formKey,
+  final LoginController controller;
+  const LoginFormWidget(
+      {Key key,
+      @required GlobalKey<FormState> formKey,
+      @required this.controller})
+      : _formKey = formKey,
         super(key: key);
   @override
   _LoginFormWidgetState createState() => _LoginFormWidgetState();
 }
 
 class _LoginFormWidgetState extends State<LoginFormWidget> {
-  LoginController controller;
   List<ReactionDisposer> _disposers;
 
   @override
   void didChangeDependencies() {
     _disposers ??= [];
-    controller ??= LoginModule.to.get<LoginController>();
     super.didChangeDependencies();
     _disposers ??= [
-      reaction((_) => controller.screenStateEnum,
+      reaction((_) => widget.controller.screenStateEnum,
           (ScreenStateEnum screenStateEnum) {
         if (screenStateEnum == ScreenStateEnum.ERROR) {
           print('deu erroa ai');
@@ -66,32 +64,33 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
             ),
             SizedBox(height: 48.0),
             TextFormRequired(
-              initialValue: controller.loginModel.userName,
+              initialValue: widget.controller.loginModel.userName,
               labelText: "Usuário",
               requiredErrorMsg: "Preencha o usuário",
               onEdit: (value) {
-                controller.setUsername(value);
+                widget.controller.setUsername(value);
               },
             ),
             SizedBox(height: 8.0),
             Observer(builder: (_) {
               return TextFormRequired(
-                initialValue: controller.loginModel.password,
+                initialValue: widget.controller.loginModel.password,
                 labelText: "Senha",
                 requiredErrorMsg: "Preencha a senha",
-                obscureText: controller.showPassword == false ? true : false,
+                obscureText:
+                    widget.controller.showPassword == false ? true : false,
                 onEdit: (value) {
-                  controller.setPassword(value);
+                  widget.controller.setPassword(value);
                 },
                 suffixIcon: GestureDetector(
                   child: Icon(
-                    controller.showPassword == false
+                    widget.controller.showPassword == false
                         ? Icons.visibility_off
                         : Icons.visibility,
                     color: Colors.black,
                   ),
                   onTap: () {
-                    controller.setShowPassword();
+                    widget.controller.setShowPassword();
                   },
                 ),
               );
@@ -99,7 +98,8 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
             SizedBox(height: 24.0),
             Observer(
               builder: (_) {
-                if (controller.screenStateEnum == ScreenStateEnum.LOADING) {
+                if (widget.controller.screenStateEnum ==
+                    ScreenStateEnum.LOADING) {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
@@ -117,7 +117,7 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
                       LoginButton(
                         onPressed: () {
                           if (widget._formKey.currentState.validate()) {
-                            controller.login();
+                            widget.controller.login();
                           }
                         },
                       ),

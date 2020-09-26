@@ -4,11 +4,11 @@ import 'package:Estimulo/src/shared/widgets/h2.dart';
 import 'package:Estimulo/src/shared/widgets/text_form_radio_picker.dart';
 import 'package:Estimulo/src/shared/widgets/text_form_required.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
+import 'package:get_it/get_it.dart';
 
 class DadosCadastraisWidget extends StatelessWidget {
   final CadastroController _cadastroController =
-      Modular.get<CadastroController>();
+      GetIt.I.get<CadastroController>();
   final TextEditingController negocioFamiliar = TextEditingController()
     ..text = "Sim";
   final TextEditingController txbRazaoSocial = TextEditingController()

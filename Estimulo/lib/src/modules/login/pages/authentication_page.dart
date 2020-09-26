@@ -1,11 +1,10 @@
+import 'package:Estimulo/src/modules/home/pages/home_page.dart';
 import 'package:Estimulo/src/modules/login/controllers/login_controller.dart';
 import 'package:Estimulo/src/modules/login/models/session_state_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:flutter_modular/flutter_modular.dart';
+import 'package:get_it/get_it.dart';
 import 'package:mobx/mobx.dart';
-
-import '../login_module.dart';
 import 'login_page.dart';
 
 class AuthenticationPage extends StatefulWidget {
@@ -19,14 +18,19 @@ class _AuthenticationPageState extends State<AuthenticationPage> {
 
   @override
   void didChangeDependencies() {
-    controller ??= LoginModule.to.get<LoginController>();
+    controller ??= GetIt.I.get<LoginController>();
     super.didChangeDependencies();
     _disposers ??= [
       reaction((_) {
         return controller.session;
       }, (SessionStateEnum session) {
         if (session == SessionStateEnum.LOGIN_SUCCESS) {
-          Modular.to.pushReplacementNamed('/home');
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => HomePage(),
+            ),
+          );
         }
       })
     ];
@@ -39,7 +43,7 @@ class _AuthenticationPageState extends State<AuthenticationPage> {
         if (controller.session == SessionStateEnum.LOGGING) {
           return Center(child: CircularProgressIndicator());
         } else if (controller.session == SessionStateEnum.INITIAL) {
-          return LoginPage();
+          return LoginPage(controller);
         } else {
           return CircularProgressIndicator();
         }

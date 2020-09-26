@@ -1,7 +1,7 @@
+import 'package:Estimulo/src/modules/cadastro/pages/comp_info_page.dart';
 import 'package:Estimulo/src/shared/app_colors.dart';
 import 'package:Estimulo/src/shared/widgets/text_form_required.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 
 class UserInfoPage extends StatelessWidget {
   final _formKey = GlobalKey<FormState>(); // Keys
@@ -58,7 +58,12 @@ class UserInfoPage extends StatelessWidget {
                       FlatButton(
                         onPressed: () {
                           if (_formKey.currentState.validate()) {
-                            Modular.to.pushNamed("/compinfo");
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => CompInfoPage(),
+                              ),
+                            );
                           }
                         },
                         child: Text(

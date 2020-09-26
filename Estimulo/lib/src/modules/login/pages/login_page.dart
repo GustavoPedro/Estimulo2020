@@ -1,12 +1,12 @@
-import 'package:Estimulo/src/modules/login/controllers/login_controller.dart';
 import 'package:Estimulo/src/modules/login/widgets/login_form_widget.dart';
 import 'package:Estimulo/src/shared/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 
 class LoginPage extends StatelessWidget {
-  final controller = Modular.get<LoginController>();
+  final controller;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>(); // Keys
+
+  LoginPage(this.controller);
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +34,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 child: LoginFormWidget(
                   formKey: _formKey,
+                  controller: controller,
                 ),
               ),
             ],
