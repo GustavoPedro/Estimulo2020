@@ -6,7 +6,9 @@ class AppModule {
   static final _getIt = GetIt.instance;
 
   static void registerDependencies() {
-    _getIt.registerSingleton<SessionModel>(SessionModel());
+    _getIt.registerSingleton<SessionModel>(
+      SessionModel(),
+    );
     _getIt.registerSingleton<Dio>(
       Dio(
         BaseOptions(baseUrl: 'http://maximo.ddns:7001/maximo/oslc/os'),

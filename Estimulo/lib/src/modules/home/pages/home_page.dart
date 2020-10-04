@@ -2,6 +2,9 @@ import 'package:Estimulo/src/modules/cadastro/pages/info_page.dart';
 import 'package:Estimulo/src/modules/login/controllers/login_controller.dart';
 import 'package:Estimulo/src/modules/login/models/session_model.dart';
 import 'package:Estimulo/src/modules/login/pages/authentication_page.dart';
+import 'package:Estimulo/src/modules/specificment/pages/alert_fill_weaknesses_page.dart';
+import 'package:Estimulo/src/modules/training/pages/modules_page.dart';
+import 'package:Estimulo/src/modules/training/widgets/modules_widget.dart';
 import 'package:Estimulo/src/shared/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
@@ -29,36 +32,11 @@ class _HomePage extends State<HomePage> {
   _getDrawerItem(int pos) {
     switch (pos) {
       case 0:
-        return Scaffold(
-          appBar: AppBar(
-            leading: IconButton(
-                icon: Icon(Icons.menu),
-                onPressed: () {
-                  _scaffoldKey.currentState.openDrawer();
-                }),
-            title: Text("Bem Vindo"),
-          ),
-          body: Padding(
-            padding: EdgeInsets.all(10),
-            child: Column(
-              children: <Widget>[
-                Text(
-                  "Bem vindo ${_sessionModel.userName}",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                )
-              ],
-            ),
-          ),
-        );
+        return ModulesPage(scaffoldKey: _scaffoldKey);
       case 1:
         return InfoPage();
       case 2:
-        return Container(
-          child: Center(
-            child: Text("Olá World"),
-          ),
-        );
+        return AlertFillWeaknessesPage();
     }
   }
 

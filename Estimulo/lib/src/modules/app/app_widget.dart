@@ -10,7 +10,7 @@ class AppWidget extends StatelessWidget {
       title: 'Estimulo 2020',
       theme: ThemeData(
         primaryColor: AppColors.primary,
-        accentColor: AppColors.secondary,
+        //accentColor: AppColors.secondary,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         fontFamily: "Avenir, Helvetica, Arial, sans-serif",
       ),
