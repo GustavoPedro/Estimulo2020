@@ -1,11 +1,8 @@
 import 'package:Estimulo/src/modules/cadastro/pages/info_page.dart';
 import 'package:Estimulo/src/modules/login/controllers/login_controller.dart';
-import 'package:Estimulo/src/modules/login/models/session_model.dart';
 import 'package:Estimulo/src/modules/login/pages/authentication_page.dart';
 import 'package:Estimulo/src/modules/specificment/pages/alert_fill_weaknesses_page.dart';
 import 'package:Estimulo/src/modules/training/pages/modules_page.dart';
-import 'package:Estimulo/src/modules/training/widgets/modules_widget.dart';
-import 'package:Estimulo/src/shared/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
@@ -20,7 +17,6 @@ class _HomePage extends State<HomePage> {
   int _selectedIndex = 0;
 
   LoginController _loginController = GetIt.I.get<LoginController>();
-  SessionModel _sessionModel = GetIt.I.get<SessionModel>();
 
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 

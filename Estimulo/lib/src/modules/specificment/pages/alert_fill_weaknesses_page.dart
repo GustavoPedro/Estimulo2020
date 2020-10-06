@@ -6,16 +6,17 @@ class AlertFillWeaknessesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
+        color: AppColors.secondary,
         padding: EdgeInsets.all(20),
         child: Column(
           children: [
             Expanded(
-              flex: 3,
               child: Container(
                 child: FittedBox(
                   fit: BoxFit.contain,
-                  child: Image.network(
-                      "https://braziljournal.s3.amazonaws.com/media/10991-ac21c8b5-202b-0eb1-86aa-e58a883eac7b.jpg?v=1587692555"),
+                  child: Image.asset(
+                    "lib/assets/images/logo.jpg",
+                  ),
                 ),
               ),
             ),
@@ -23,15 +24,17 @@ class AlertFillWeaknessesPage extends StatelessWidget {
               height: 20,
             ),
             Expanded(
-              flex: 2,
               child: Text(
-                  "Bem Vindo ao Estimulo 2020, para receber um acompanhamento dos maiores empresários do país é necessário que preencha algumas perguntas, para que possamos te direcionar para as melhores soluções na aplicação"),
+                "Bem Vindo ao Estimulo 2020, para receber um acompanhamento dos maiores empresários do país é necessário que preencha algumas perguntas, para que possamos te direcionar para as melhores soluções na aplicação",
+                style: TextStyle(fontSize: 20, color: AppColors.white),
+                textAlign: TextAlign.center,
+              ),
             ),
             RaisedButton(
-              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 5),
+              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
               color: AppColors.terciary,
               onPressed: () {},
-              child: const Text(
+              child: Text(
                 'Vamos Lá',
                 style: TextStyle(
                   color: Colors.white,

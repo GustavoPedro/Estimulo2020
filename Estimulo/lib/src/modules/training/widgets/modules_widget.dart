@@ -1,4 +1,6 @@
 import 'package:Estimulo/src/modules/training/models/module.dart';
+import 'package:Estimulo/src/modules/training/models/module_content.dart';
+import 'package:Estimulo/src/modules/training/pages/module_content_page.dart';
 import 'package:flutter/material.dart';
 
 class ModulesWidget extends StatelessWidget {
@@ -8,17 +10,77 @@ class ModulesWidget extends StatelessWidget {
       moduleName: "Financeiro",
       moduleImage:
           "https://assets.blu365.com.br/uploads/sites/4/2019/09/planejamento-financeiro-semanal.jpg",
+      moduleContents: <ModuleContent>[
+        ModuleContent(
+          moduleId: 1,
+          title: "Teste",
+          link: "https://www.youtube.com/watch?v=mNHKNyhSn8I",
+          type: "Video",
+        ),
+        ModuleContent(
+          moduleId: 1,
+          title: "Teste",
+          link: "https://www.youtube.com/watch?v=mNHKNyhSn8I",
+          type: "Quiz",
+        ),
+        ModuleContent(
+          moduleId: 1,
+          title: "Teste",
+          link: "https://www.youtube.com/watch?v=mNHKNyhSn8I",
+          type: "Video",
+        ),
+      ],
     ),
     ModuleModel(
       moduleId: 2,
       moduleName: "Teste2",
       moduleImage:
           "https://assets.blu365.com.br/uploads/sites/4/2019/09/planejamento-financeiro-semanal.jpg",
+      moduleContents: <ModuleContent>[
+        ModuleContent(
+          moduleId: 1,
+          title: "Teste",
+          link: "https://www.youtube.com/watch?v=mNHKNyhSn8I",
+          type: "Quiz",
+        ),
+        ModuleContent(
+          moduleId: 1,
+          title: "Teste",
+          link: "https://www.youtube.com/watch?v=mNHKNyhSn8I",
+          type: "Video",
+        ),
+        ModuleContent(
+          moduleId: 1,
+          title: "Teste",
+          link: "https://www.youtube.com/watch?v=mNHKNyhSn8I",
+          type: "Video",
+        ),
+      ],
     ),
     ModuleModel(
       moduleId: 3,
       moduleName: "Teste3",
       moduleImage: "https://picsum.photos/250?image=9",
+      moduleContents: <ModuleContent>[
+        ModuleContent(
+          moduleId: 1,
+          title: "Teste",
+          link: "https://www.youtube.com/watch?v=mNHKNyhSn8I",
+          type: "Quiz",
+        ),
+        ModuleContent(
+          moduleId: 1,
+          title: "Teste",
+          link: "https://www.youtube.com/watch?v=mNHKNyhSn8I",
+          type: "Video",
+        ),
+        ModuleContent(
+          moduleId: 1,
+          title: "Teste",
+          link: "https://www.youtube.com/watch?v=mNHKNyhSn8I",
+          type: "Video",
+        ),
+      ],
     ),
   ];
   @override
@@ -52,7 +114,14 @@ class ModulesWidget extends StatelessWidget {
                   FlatButton(
                     textColor: Color(0xFF6200EE),
                     onPressed: () {
-                      // Perform some action
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ModuleContentPage(
+                            moduleModel: module,
+                          ),
+                        ),
+                      );
                     },
                     child: Text('Acessar'),
                   ),

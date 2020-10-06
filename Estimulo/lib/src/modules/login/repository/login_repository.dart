@@ -44,6 +44,7 @@ class LoginRepository {
     return retorno;
   }
 
+  // ignore: unused_element
   void _persistToken(String defsite, String maxauth, String username) async {
     final storage = new FlutterSecureStorage();
     await storage.write(key: "defsite", value: defsite);
@@ -77,6 +78,7 @@ class LoginRepository {
     }
   }
 
+// ignore: unused_element
   String _encodeString(String user, String password) {
     String authorization = user + ":" + password;
     return base64.encode(utf8.encode(authorization));

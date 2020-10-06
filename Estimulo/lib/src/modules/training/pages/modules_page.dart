@@ -1,5 +1,6 @@
 import 'package:Estimulo/src/modules/training/widgets/modules_widget.dart';
 import 'package:Estimulo/src/shared/app_colors.dart';
+import 'package:Estimulo/src/shared/widgets/page_container.dart';
 import 'package:flutter/material.dart';
 
 class ModulesPage extends StatelessWidget {
@@ -13,7 +14,6 @@ class ModulesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: AppColors.primary,
       appBar: AppBar(
@@ -32,16 +32,7 @@ class ModulesPage extends StatelessWidget {
           )
         ],
       ),
-      body: Container(
-        height: height,
-        padding: EdgeInsets.only(top: 25),
-        decoration: BoxDecoration(
-          color: AppColors.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20),
-            topRight: Radius.circular(20),
-          ),
-        ),
+      body: PageContainer(
         child: ModulesWidget(),
       ),
     );
