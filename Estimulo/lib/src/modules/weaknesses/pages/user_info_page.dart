@@ -1,4 +1,4 @@
-import 'package:Estimulo/src/modules/cadastro/pages/comp_info_page.dart';
+import 'package:Estimulo/src/modules/weaknesses/pages/comp_info_page.dart';
 import 'package:Estimulo/src/shared/app_colors.dart';
 import 'package:Estimulo/src/shared/widgets/text_form_required.dart';
 import 'package:flutter/material.dart';

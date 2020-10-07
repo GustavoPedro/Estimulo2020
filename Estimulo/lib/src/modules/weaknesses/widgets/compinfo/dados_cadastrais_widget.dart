@@ -1,4 +1,4 @@
-import 'package:Estimulo/src/modules/cadastro/controller/cadastro_controller.dart';
+import 'package:Estimulo/src/modules/weaknesses/controller/cadastro_controller.dart';
 import 'package:Estimulo/src/shared/app_colors.dart';
 import 'package:Estimulo/src/shared/widgets/h2.dart';
 import 'package:Estimulo/src/shared/widgets/text_form_radio_picker.dart';

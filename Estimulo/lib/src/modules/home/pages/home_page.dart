@@ -1,8 +1,8 @@
-import 'package:Estimulo/src/modules/cadastro/pages/info_page.dart';
 import 'package:Estimulo/src/modules/login/controllers/login_controller.dart';
 import 'package:Estimulo/src/modules/login/pages/authentication_page.dart';
 import 'package:Estimulo/src/modules/specificment/pages/alert_fill_weaknesses_page.dart';
 import 'package:Estimulo/src/modules/training/pages/modules_page.dart';
+import 'package:Estimulo/src/modules/weaknesses/pages/weaknesses_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
@@ -30,7 +30,7 @@ class _HomePage extends State<HomePage> {
       case 0:
         return ModulesPage(scaffoldKey: _scaffoldKey);
       case 1:
-        return InfoPage();
+        return WeaknessesPage(scaffoldKey: _scaffoldKey);
       case 2:
         return AlertFillWeaknessesPage();
     }

@@ -21,7 +21,10 @@ class PageContainer extends StatelessWidget {
           topRight: Radius.circular(20),
         ),
       ),
-      child: child,
+      child: Padding(
+        padding: const EdgeInsets.all(7.0),
+        child: child,
+      ),
     );
   }
 }

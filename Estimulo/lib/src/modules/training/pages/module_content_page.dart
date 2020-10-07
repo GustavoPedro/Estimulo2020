@@ -21,15 +21,12 @@ class ModuleContentPage extends StatelessWidget {
         centerTitle: true,
       ),
       body: PageContainer(
-        child: Padding(
-          padding: const EdgeInsets.all(7.0),
-          child: ListView.builder(
-            itemCount: moduleModel.moduleContents?.length ?? 0,
-            itemBuilder: (context, index) {
-              ModuleContent moduleContent = moduleModel.moduleContents[index];
-              return ContentListItemWidget(moduleContent: moduleContent);
-            },
-          ),
+        child: ListView.builder(
+          itemCount: moduleModel.moduleContents?.length ?? 0,
+          itemBuilder: (context, index) {
+            ModuleContent moduleContent = moduleModel.moduleContents[index];
+            return ContentListItemWidget(moduleContent: moduleContent);
+          },
         ),
       ),
     );

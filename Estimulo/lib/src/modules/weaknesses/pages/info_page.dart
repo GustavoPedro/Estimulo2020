@@ -1,5 +1,5 @@
-import 'package:Estimulo/src/modules/cadastro/pages/user_info_page.dart';
-import 'package:Estimulo/src/modules/cadastro/widgets/terms_widget.dart';
+import 'package:Estimulo/src/modules/weaknesses/pages/user_info_page.dart';
+import 'package:Estimulo/src/modules/weaknesses/widgets/terms_widget.dart';
 import 'package:Estimulo/src/shared/app_colors.dart';
 import 'package:flutter/material.dart';
 

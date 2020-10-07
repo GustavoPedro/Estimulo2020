@@ -1,10 +1,10 @@
-import 'package:Estimulo/src/modules/cadastro/controller/cadastro_controller.dart';
-import 'package:Estimulo/src/modules/cadastro/widgets/compinfo/dados_cadastrais_widget.dart';
-import 'package:Estimulo/src/modules/cadastro/widgets/compinfo/dados_contato_widget.dart';
-import 'package:Estimulo/src/modules/cadastro/widgets/compinfo/dados_emprestimo_widget.dart';
-import 'package:Estimulo/src/modules/cadastro/widgets/compinfo/dados_negocio_widget.dart';
-import 'package:Estimulo/src/modules/cadastro/widgets/compinfo/dados_pandemia_widget.dart';
-import 'package:Estimulo/src/modules/cadastro/widgets/compinfo/form_page.dart';
+import 'package:Estimulo/src/modules/weaknesses/controller/cadastro_controller.dart';
+import 'package:Estimulo/src/modules/weaknesses/widgets/compinfo/dados_cadastrais_widget.dart';
+import 'package:Estimulo/src/modules/weaknesses/widgets/compinfo/dados_contato_widget.dart';
+import 'package:Estimulo/src/modules/weaknesses/widgets/compinfo/dados_emprestimo_widget.dart';
+import 'package:Estimulo/src/modules/weaknesses/widgets/compinfo/dados_negocio_widget.dart';
+import 'package:Estimulo/src/modules/weaknesses/widgets/compinfo/dados_pandemia_widget.dart';
+import 'package:Estimulo/src/modules/weaknesses/widgets/compinfo/form_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
