@@ -1,3 +1,7 @@
+import 'package:Estimulo/src/modules/login/adapters/address_adapter.dart';
+import 'package:Estimulo/src/modules/login/controllers/create_account_controller.dart';
+import 'package:Estimulo/src/modules/login/repository/address_repository.dart';
+import 'package:Estimulo/src/modules/login/view_models/account_viewmodel.dart';
 import 'package:dio/dio.dart';
 import 'models/session_model.dart';
 import 'repository/login_repository.dart';
@@ -17,9 +21,20 @@ class LoginModule {
       ),
     );
     _getIt.registerFactory(
-      () => LoginController(
-        _getIt.get<LoginRepository>(),
+      () => LoginController(_getIt.get<LoginRepository>()),
+    );
+
+    _getIt.registerFactory(() => AddressAdapter());
+
+    _getIt.registerFactory(
+      () => AddressRepository(
+        _getIt.get<Dio>(),
+        _getIt.get<AddressAdapter>(),
+        Uri.https("viacep.com.br", ""),
       ),
     );
+
+    _getIt.registerFactory(() => CreateAccountController(
+        AccountViewModel(), _getIt.get<AddressRepository>()));
   }
 }

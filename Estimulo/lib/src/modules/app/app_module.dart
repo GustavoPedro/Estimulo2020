@@ -11,8 +11,8 @@ class AppModule {
     );
     _getIt.registerSingleton<Dio>(
       Dio(
-        BaseOptions(baseUrl: 'http://maximo.ddns:7001/maximo/oslc/os'),
-      ),
+//        BaseOptions(baseUrl: 'http://maximo.ddns:7001/maximo/oslc/os'),
+          ),
     );
   }
 }

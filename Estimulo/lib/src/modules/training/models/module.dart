@@ -1,6 +1,8 @@
+import 'package:Estimulo/src/shared/models/model.dart';
+
 import 'module_content.dart';
 
-class ModuleModel {
+class ModuleModel extends Model {
   int moduleId;
   String moduleName;
   String moduleImage;

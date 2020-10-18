@@ -1,4 +1,6 @@
-class ModuleContent {
+import 'package:Estimulo/src/shared/models/model.dart';
+
+class ModuleContent extends Model {
   int moduleId;
   String type;
   String link;

@@ -1,4 +1,5 @@
 import 'package:Estimulo/src/modules/login/controllers/login_controller.dart';
+import 'package:Estimulo/src/modules/login/pages/create_account_page.dart';
 import 'package:Estimulo/src/modules/login/widgets/login_loading.dart';
 import 'package:Estimulo/src/shared/enuns/screen_state_enum.dart';
 import 'package:Estimulo/src/shared/widgets/text_form_required.dart';
@@ -105,9 +106,7 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
                     children: [
                       LoginLoadingButton(),
                       Divider(),
-                      CreateAccountButton(
-                        onPressed: () {},
-                      ),
+                      CreateAccountButton(),
                     ],
                   );
                 } else {
@@ -123,7 +122,14 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
                       ),
                       Divider(),
                       CreateAccountButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CreateAccountPage(),
+                            ),
+                          );
+                        },
                       ),
                     ],
                   );
