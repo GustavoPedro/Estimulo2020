@@ -1,0 +1,46 @@
+Informações da Empresa
+
+	Razao Social
+	CNPJ
+	Idade da Empresa
+	Negócio Familiar
+	
+Contato
+	CEP
+	Rua
+	Bairro
+	Numero
+	Complemento
+	Municipio
+	Estado
+	Telefone Comercial
+	Email
+	Site/Rede Social
+
+
+
+Informações do Negócio
+	Nº de Funcionários antes da crise;
+	Faixa faturamento mensal antes da crise
+	Setor de atuação da empresa;
+	Qual é a segmentação de nicho de mercado da empresa? *
+	Marque a(s) especialidade(s) que você acredita necessitar de assessoria. É possível marcar mais de uma opção: *
+	
+
+Informações Pandemia:
+	A sua empresa se beneficiou do programa emergencial de manutenção do emprego (Medida Provisória 936)? *
+	A empresa recebeu algum empréstimo dos fundos públicos destinados ao socorro de pequenas e médias empresas afetadas pela Covid-19? (Exemplo: Programa Nacional de Apoio às Microempresas e Empresas de Pequeno Porte (Pronampe), Programa Emergencial de Suporte ao Emprego (Pese), Programa de Capital de Giro para Preservação de Empresa (CGPE), dentre outras). *
+	Se você respondeu sim a pergunta anterior, informe qual(is) linha(s) de empréstimo(s) a empresa acessou e qual(is) o(s) valor(es) total(is) do(s) empréstimo(s) recebido(s)?
+	Durante a pandemia, quantos funcionários você demitiu? *
+	Durante a pandemia, qual foi o percentual de redução de seu faturamento mensal? *
+	O seu negócio possui filiais? Se sim, quantas estavam operando antes da pandemia e quantas atualmente? *
+	Se respondeu que o negócio possui filiais, informe em qual(is) cidade(s) estão localizadas.
+	A empresa faz parte de uma Franquia? *
+	Se respondeu sim a pergunta anterior, a franquia concedeu algum apoio durante a pandemia?
+	Durante a pandemia, você precisou encerrar contrato com quantos fornecedores? *
+
+Motivação:
+	Qual é o grau de importância do negócio na sua vida? Considerando que 1 é pouco importante e 10 é muito importante. *
+	Qual é o seu tempo de dedicação para o negócio? *
+	Você estaria disposto a se dedicar no mínimo 3 (três) horas semanais para participar deste processo nas ações de assessoramento? *
+	Por que eu quero participar deste programa? Justifique sua resposta. *
