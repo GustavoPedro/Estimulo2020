@@ -79,13 +79,17 @@ namespace EstimuloBackEnd.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Email")
+<<<<<<< HEAD
                         .IsRequired()
+=======
+>>>>>>> 223019f2487db38a8dd12776d9fe02f19b66e963
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("EnderecoId")
                         .HasColumnType("int");
 
                     b.Property<string>("Nome")
+<<<<<<< HEAD
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -95,6 +99,14 @@ namespace EstimuloBackEnd.Migrations
 
                     b.Property<string>("Telefone")
                         .IsRequired()
+=======
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Senha")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Telefone")
+>>>>>>> 223019f2487db38a8dd12776d9fe02f19b66e963
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
