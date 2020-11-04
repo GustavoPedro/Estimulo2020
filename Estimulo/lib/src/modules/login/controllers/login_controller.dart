@@ -44,8 +44,8 @@ abstract class _LoginControllerBase with Store {
   login() async {
     try {
       screenStateEnum = ScreenStateEnum.LOADING;
-      bool isLogged =
-          await _loginRepository.signIn(username: "Bune", password: "Cap");
+      bool isLogged = await _loginRepository.signIn(
+          username: loginModel.userName, password: loginModel.password);
       isLogged = true;
       if (isLogged) {
         screenStateEnum = ScreenStateEnum.SUCCESS;

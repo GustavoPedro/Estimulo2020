@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 class StepsListItemWidget extends StatelessWidget {
   final String title;
   final String percentComplete;
+  final Function onPressed;
 
   const StepsListItemWidget({
     Key key,
     @required this.title,
     @required this.percentComplete,
+    this.onPressed,
   }) : super(key: key);
 
   @override
@@ -30,7 +32,9 @@ class StepsListItemWidget extends StatelessWidget {
       ),
       trailing: IconButton(
         icon: Icon(Icons.arrow_forward_ios),
-        onPressed: () {},
+        onPressed: () {
+          this.onPressed();
+        },
       ),
     );
   }

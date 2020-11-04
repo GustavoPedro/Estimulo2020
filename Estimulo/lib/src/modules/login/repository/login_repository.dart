@@ -2,7 +2,15 @@ import 'dart:convert';
 
 import 'package:Estimulo/src/modules/login/models/session_model.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+
+class Data {
+  final String username;
+  final String password;
+
+  Data(this.username, this.password);
+}
 
 class LoginRepository {
   final Dio _dio;
@@ -10,46 +18,30 @@ class LoginRepository {
 
   LoginRepository(this._dio, this._sessionModel);
 
-  // Future<SessionModel> signIn({String username, String password}) async {
-  //   try {
-  //     String maxauth = _encodeString(username, password);
-
-  //     //https://ge-rl-dev.maximo.com/maximo/oslc/os/mxperuser?oslc.select=user.defsite&oslc.where=user.userid=%22503081104%22
-  //     _dio.options.headers["maxauth"] = maxauth;
-  //     var response = await _dio.get(
-  //         '/oslc/os/mxperuser?oslc.select=user.defsite&oslc.where=user.userid="$username"&lean=1');
-  //     if (response?.statusCode == 200) {
-  //       String defsite = response.data["member"][0]["user"]["defsite"];
-  //       _persistToken(defsite, maxauth, username);
-  //       return SessionModel(
-  //           sessionStateEnum: SessionStateEnum.LOGIN_SUCCESS,
-  //           defSite: defsite,
-  //           maxauth: maxauth,
-  //           userName: username);
-  //     }
-  //     return SessionModel(sessionStateEnum: SessionStateEnum.LOGIN_ERROR);
-  //   } catch (e) {
-  //     throw e;
-  //   }
-  // }
   Future<bool> signIn({String username, String password}) async {
-    bool retorno = false;
-    await Future.delayed(Duration(seconds: 3), () {
-      if (username == "Bune" && password == "Cap") {
-        _sessionModel.configure(
-            userName: "Cap", defSite: "TBT", maxauth: "adewadawd");
-        retorno = true;
+    try {
+      var response = await _dio
+          .post('/auth', data: {"email": username, "senha": password});
+      if (response?.statusCode == 200) {
+        String userName = response.data["user"]["Nome"];
+        String token = response.data["token"];
+
+        _persistToken(userName: userName, token: token);
+        _sessionModel.configure(userName: userName, token: token);
+        return true;
       }
-    });
-    return retorno;
+      return false;
+    } catch (e) {
+      throw e;
+    }
   }
 
   // ignore: unused_element
-  void _persistToken(String defsite, String maxauth, String username) async {
+  void _persistToken(
+      {@required String token, @required String userName}) async {
     final storage = new FlutterSecureStorage();
-    await storage.write(key: "defsite", value: defsite);
-    await storage.write(key: "maxauth", value: maxauth);
-    await storage.write(key: "username", value: username);
+    await storage.write(key: "token", value: token);
+    await storage.write(key: "userName", value: userName);
   }
 
   void deleteToken() async {
@@ -60,18 +52,13 @@ class LoginRepository {
   Future<bool> hasToken() async {
     final storage = new FlutterSecureStorage();
 
-    String defSite = await storage.read(key: "defsite");
-    String maxauth = await storage.read(key: "maxauth");
-    String userName = await storage.read(key: "username");
-    if (defSite != null &&
-        defSite.isNotEmpty &&
-        maxauth != null &&
-        maxauth.isNotEmpty &&
+    String token = await storage.read(key: "token");
+    String userName = await storage.read(key: "userName");
+    if (token != null &&
+        token.isNotEmpty &&
         userName != null &&
         userName.isNotEmpty) {
-      _dio.options.headers["maxauth"] = maxauth;
-      _sessionModel.configure(
-          userName: "Cap", defSite: "TBT", maxauth: "adewadawd");
+      _sessionModel.configure(userName: userName, token: token);
       return true;
     } else {
       return false;

@@ -1,7 +1,8 @@
+import 'package:flutter/material.dart';
+
 class SessionModel {
   String userName;
-  String defSite;
-  String maxauth;
+  String token;
 
   static final SessionModel _singleton = SessionModel._internal();
 
@@ -9,10 +10,9 @@ class SessionModel {
     return _singleton;
   }
 
-  configure({String userName, String defSite, String maxauth}) {
+  configure({@required String userName, @required String token}) {
     _singleton.userName = userName;
-    _singleton.defSite = defSite;
-    _singleton.maxauth = maxauth;
+    _singleton.token = token;
   }
 
   SessionModel._internal();

@@ -1,10 +1,13 @@
+import 'package:Estimulo/src/modules/businesmonitoring/pages/list_reports_page.dart';
 import 'package:Estimulo/src/modules/login/controllers/login_controller.dart';
 import 'package:Estimulo/src/modules/login/pages/authentication_page.dart';
 import 'package:Estimulo/src/modules/specificment/pages/alert_fill_weaknesses_page.dart';
 import 'package:Estimulo/src/modules/training/pages/modules_page.dart';
+import 'package:Estimulo/src/modules/weaknesses/pages/info_page.dart';
 import 'package:Estimulo/src/modules/weaknesses/pages/weaknesses_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -20,9 +23,32 @@ class _HomePage extends State<HomePage> {
 
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
+  Future<bool> isFirstTime() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    var isFirstTime = prefs.getBool('first_time');
+    if (isFirstTime != null && !isFirstTime) {
+      prefs.setBool('first_time', false);
+      return false;
+    } else {
+      prefs.setBool('first_time', false);
+      return true;
+    }
+  }
+
   @override
   void initState() {
     super.initState();
+
+    isFirstTime().then((value) {
+      if (value) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => AlertFillWeaknessesPage(),
+          ),
+        );
+      }
+    });
   }
 
   _getDrawerItem(int pos) {
@@ -32,7 +58,7 @@ class _HomePage extends State<HomePage> {
       case 1:
         return WeaknessesPage(scaffoldKey: _scaffoldKey);
       case 2:
-        return AlertFillWeaknessesPage();
+        return ListReportsPage(scaffoldKey: _scaffoldKey);
     }
   }
 

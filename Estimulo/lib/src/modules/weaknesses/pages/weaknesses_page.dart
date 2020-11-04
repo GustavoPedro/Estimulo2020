@@ -1,3 +1,4 @@
+import 'package:Estimulo/src/modules/weaknesses/pages/comp_info_page.dart';
 import 'package:Estimulo/src/modules/weaknesses/widgets/steps_list_item_widget.dart';
 import 'package:Estimulo/src/shared/app_colors.dart';
 import 'package:Estimulo/src/shared/widgets/page_container.dart';
@@ -38,6 +39,14 @@ class WeaknessesPage extends StatelessWidget {
                 StepsListItemWidget(
                   title: "Informações da Empresa",
                   percentComplete: "0",
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CompInfoPage(),
+                      ),
+                    );
+                  },
                 ),
                 StepsListItemWidget(
                   title: "Contato",
