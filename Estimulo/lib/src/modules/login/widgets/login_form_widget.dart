@@ -1,50 +1,31 @@
-import 'package:Estimulo/src/modules/login/controllers/login_controller.dart';
-import 'package:Estimulo/src/modules/login/pages/create_account_page.dart';
-import 'package:Estimulo/src/modules/login/widgets/login_loading.dart';
-import 'package:Estimulo/src/shared/enuns/screen_state_enum.dart';
+import 'package:Estimulo/src/modules/login/pages/create_account/bloc/create_account_bloc.dart';
+import 'package:Estimulo/src/modules/login/pages/create_account/create_account_page.dart';
+import 'package:Estimulo/src/modules/login/pages/login/bloc/login_bloc.dart';
+import 'package:Estimulo/src/modules/login/repository/address_repository.dart';
 import 'package:Estimulo/src/shared/widgets/text_form_required.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:mobx/mobx.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 
 import 'create_account_button.dart';
 import 'login_button.dart';
+import 'login_loading.dart';
 
 class LoginFormWidget extends StatefulWidget {
   final GlobalKey<FormState> _formKey;
-  final LoginController controller;
-  const LoginFormWidget(
-      {Key key,
-      @required GlobalKey<FormState> formKey,
-      @required this.controller})
-      : _formKey = formKey,
+  const LoginFormWidget({
+    Key key,
+    @required GlobalKey<FormState> formKey,
+  })  : _formKey = formKey,
         super(key: key);
   @override
   _LoginFormWidgetState createState() => _LoginFormWidgetState();
 }
 
 class _LoginFormWidgetState extends State<LoginFormWidget> {
-  List<ReactionDisposer> _disposers;
-
-  @override
-  void didChangeDependencies() {
-    _disposers ??= [];
-    super.didChangeDependencies();
-    _disposers ??= [
-      reaction((_) => widget.controller.screenStateEnum,
-          (ScreenStateEnum screenStateEnum) {
-        if (screenStateEnum == ScreenStateEnum.ERROR) {
-          print('deu erroa ai');
-        }
-      })
-    ];
-  }
-
-  @override
-  void dispose() {
-    _disposers.forEach((d) => d());
-    super.dispose();
-  }
+  final TextEditingController email = TextEditingController();
+  final TextEditingController senha = TextEditingController();
+  bool showPassword = false;
 
   @override
   Widget build(BuildContext context) {
@@ -65,42 +46,34 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
             ),
             SizedBox(height: 48.0),
             TextFormRequired(
-              initialValue: widget.controller.loginModel.userName,
+              textEditingController: email,
               labelText: "Usuário",
               requiredErrorMsg: "Preencha o usuário",
-              onEdit: (value) {
-                widget.controller.setUsername(value);
-              },
             ),
             SizedBox(height: 8.0),
-            Observer(builder: (_) {
-              return TextFormRequired(
-                initialValue: widget.controller.loginModel.password,
-                labelText: "Senha",
-                requiredErrorMsg: "Preencha a senha",
-                obscureText:
-                    widget.controller.showPassword == false ? true : false,
-                onEdit: (value) {
-                  widget.controller.setPassword(value);
-                },
-                suffixIcon: GestureDetector(
-                  child: Icon(
-                    widget.controller.showPassword == false
-                        ? Icons.visibility_off
-                        : Icons.visibility,
-                    color: Colors.black,
-                  ),
-                  onTap: () {
-                    widget.controller.setShowPassword();
-                  },
+            TextFormRequired(
+              textEditingController: senha,
+              labelText: "Senha",
+              requiredErrorMsg: "Preencha a senha",
+              obscureText: showPassword == false ? true : false,
+              suffixIcon: GestureDetector(
+                child: Icon(
+                  showPassword == false
+                      ? Icons.visibility_off
+                      : Icons.visibility,
+                  color: Colors.black,
                 ),
-              );
-            }),
+                onTap: () {
+                  setState(() {
+                    showPassword = true;
+                  });
+                },
+              ),
+            ),
             SizedBox(height: 24.0),
-            Observer(
-              builder: (_) {
-                if (widget.controller.screenStateEnum ==
-                    ScreenStateEnum.LOADING) {
+            BlocBuilder<LoginBloc, LoginState>(
+              builder: (context, state) {
+                if (state is LoginInProgress) {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
@@ -116,7 +89,12 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
                       LoginButton(
                         onPressed: () {
                           if (widget._formKey.currentState.validate()) {
-                            widget.controller.login();
+                            context.bloc<LoginBloc>().add(
+                                  LoginButtonPressed(
+                                    password: senha.text,
+                                    username: email.text,
+                                  ),
+                                );
                           }
                         },
                       ),
@@ -126,7 +104,13 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => CreateAccountPage(),
+                              builder: (context) => BlocProvider(
+                                create: (context) => CreateAccountBloc(
+                                  addressOnlineRepository:
+                                      GetIt.instance.get<AddressRepository>(),
+                                ),
+                                child: CreateAccountPage(),
+                              ),
                             ),
                           );
                         },

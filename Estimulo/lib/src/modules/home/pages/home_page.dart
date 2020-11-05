@@ -1,12 +1,10 @@
 import 'package:Estimulo/src/modules/businesmonitoring/pages/list_reports_page.dart';
-import 'package:Estimulo/src/modules/login/controllers/login_controller.dart';
-import 'package:Estimulo/src/modules/login/pages/authentication_page.dart';
+import 'package:Estimulo/src/modules/login/pages/authentication/bloc/authentication_bloc.dart';
 import 'package:Estimulo/src/modules/specificment/pages/alert_fill_weaknesses_page.dart';
 import 'package:Estimulo/src/modules/training/pages/modules_page.dart';
-import 'package:Estimulo/src/modules/weaknesses/pages/info_page.dart';
 import 'package:Estimulo/src/modules/weaknesses/pages/weaknesses_page.dart';
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,8 +16,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePage extends State<HomePage> {
   int _selectedIndex = 0;
-
-  LoginController _loginController = GetIt.I.get<LoginController>();
 
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
@@ -138,12 +134,8 @@ class _HomePage extends State<HomePage> {
                   title: Text("Sair"),
                   selected: 2 == _selectedIndex,
                   onTap: () {
-                    _loginController.logout();
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => AuthenticationPage(),
-                      ),
+                    BlocProvider.of<AuthenticationBloc>(context).add(
+                      AuthenticationLoggedOut(),
                     );
                   },
                 ),

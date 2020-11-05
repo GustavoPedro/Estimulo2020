@@ -1,6 +1,10 @@
-import 'package:Estimulo/src/modules/login/pages/authentication_page.dart';
+import 'package:Estimulo/src/modules/login/pages/authentication/authentication_page.dart';
+import 'package:Estimulo/src/modules/login/pages/authentication/bloc/authentication_bloc.dart';
+import 'package:Estimulo/src/modules/login/repository/login_repository.dart';
 import 'package:Estimulo/src/shared/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 
 class AppWidget extends StatelessWidget {
   @override
@@ -14,7 +18,11 @@ class AppWidget extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         fontFamily: "Avenir, Helvetica, Arial, sans-serif",
       ),
-      home: AuthenticationPage(),
+      home: BlocProvider(
+        create: (context) => AuthenticationBloc(
+            repository: GetIt.instance.get<LoginRepository>()),
+        child: AuthenticationPage(),
+      ),
     );
   }
 }

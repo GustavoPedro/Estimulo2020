@@ -1,14 +1,19 @@
 import 'package:Estimulo/src/modules/login/controllers/create_account_controller.dart';
+import 'package:Estimulo/src/modules/login/pages/create_account/bloc/create_account_bloc.dart';
+import 'package:Estimulo/src/modules/login/view_models/account_viewmodel.dart';
 import 'package:Estimulo/src/shared/app_colors.dart';
 import 'package:Estimulo/src/shared/widgets/page_container.dart';
 import 'package:Estimulo/src/shared/widgets/text_form_radio_picker.dart';
 import 'package:Estimulo/src/shared/widgets/text_form_required.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
 class CreateAccountPage extends StatelessWidget {
   final CreateAccountController _accountController =
       GetIt.I.get<CreateAccountController>();
+
+  final AccountViewModel accountViewModel = AccountViewModel();
 
   @override
   Widget build(BuildContext context) {
@@ -26,64 +31,56 @@ class CreateAccountPage extends StatelessWidget {
               child: Column(
                 children: [
                   TextFormRequired(
-                    textEditingController:
-                        _accountController.accountViewModel.nome,
+                    textEditingController: accountViewModel.nome,
                     labelText: "Nome Completo",
                     requiredErrorMsg: "Preencha o nome completo",
                   ),
                   Focus(
                     child: TextFormRequired(
-                      textEditingController:
-                          _accountController.accountViewModel.cep,
+                      textEditingController: accountViewModel.cep,
                       labelText: "CEP",
                       requiredErrorMsg: "Preencha o CEP",
                     ),
                     onFocusChange: (hasFocus) {
                       if (!hasFocus) {
-                        _accountController.setAddressByCep();
+                        BlocProvider.of<CreateAccountBloc>(context)
+                            .add(SetAddressByCep(accountViewModel));
                       }
                     },
                   ),
                   TextFormRequired(
-                    textEditingController:
-                        _accountController.accountViewModel.rua,
+                    textEditingController: accountViewModel.rua,
                     labelText: "Rua",
                     requiredErrorMsg: "Preencha a Rua",
                   ),
                   TextFormRequired(
-                    textEditingController:
-                        _accountController.accountViewModel.bairro,
+                    textEditingController: accountViewModel.bairro,
                     labelText: "Bairro",
                     requiredErrorMsg: "Preencha o Bairro",
                   ),
                   TextFormRequired(
-                    textEditingController:
-                        _accountController.accountViewModel.cidade,
+                    textEditingController: accountViewModel.cidade,
                     labelText: "Cidade",
                     requiredErrorMsg: "Preencha a Cidade",
                   ),
                   TextFormRadioPickerWidget(
-                    textEditingController:
-                        _accountController.accountViewModel.uf,
+                    textEditingController: accountViewModel.uf,
                     pickerTitle: "UF",
                     labelText: "UF",
                     options: ["MG", "SP"],
                   ),
                   TextFormRequired(
-                    textEditingController:
-                        _accountController.accountViewModel.numero,
+                    textEditingController: accountViewModel.numero,
                     labelText: "Numero",
                     requiredErrorMsg: "Preencha o Número",
                   ),
                   TextFormRequired(
-                    textEditingController:
-                        _accountController.accountViewModel.telefone,
+                    textEditingController: accountViewModel.telefone,
                     labelText: "Telefone",
                     requiredErrorMsg: "Preencha o telefone",
                   ),
                   TextFormRequired(
-                    textEditingController:
-                        _accountController.accountViewModel.email,
+                    textEditingController: accountViewModel.email,
                     labelText: "E-mail",
                     requiredErrorMsg: "Preencha o E-mail",
                   ),
