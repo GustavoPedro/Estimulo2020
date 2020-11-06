@@ -2,7 +2,7 @@ import 'package:Estimulo/src/modules/businesmonitoring/pages/list_reports_page.d
 import 'package:Estimulo/src/modules/login/pages/authentication/bloc/authentication_bloc.dart';
 import 'package:Estimulo/src/modules/specificment/pages/alert_fill_weaknesses_page.dart';
 import 'package:Estimulo/src/modules/training/pages/modules_page.dart';
-import 'package:Estimulo/src/modules/weaknesses/pages/weaknesses_page.dart';
+import 'package:Estimulo/src/modules/weaknesses/pages/weaknesses/weaknesses_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';

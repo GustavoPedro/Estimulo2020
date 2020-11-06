@@ -12,6 +12,7 @@ class TextFormRequired extends StatelessWidget {
   final bool obscureText;
   final Widget suffixIcon;
   final String requiredErrorMsg;
+  final TextInputType keyboardType;
 
   const TextFormRequired({
     Key key,
@@ -25,11 +26,13 @@ class TextFormRequired extends StatelessWidget {
     this.suffixIcon,
     this.onValidate,
     this.requiredErrorMsg,
+    this.keyboardType,
   }) : super();
 
   @override
   Widget build(BuildContext context) {
     return TextFormWithDecoration(
+      keyboardType: this.keyboardType ?? TextInputType.text,
       hintText: hintText,
       initialValue: initialValue,
       key: key,

@@ -10,6 +10,7 @@ class TextFormWithDecoration extends StatelessWidget {
   final String labelText;
   final bool obscureText;
   final Widget suffixIcon;
+  final TextInputType keyboardType;
 
   const TextFormWithDecoration({
     Key key,
@@ -22,13 +23,14 @@ class TextFormWithDecoration extends StatelessWidget {
     this.obscureText,
     this.suffixIcon,
     this.onValidate,
+    this.keyboardType,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: textEditingController,
-      keyboardType: TextInputType.text,
+      keyboardType: this.keyboardType ?? TextInputType.text,
       decoration: InputDecoration(
         hintText: hintText,
         labelText: labelText,

@@ -1,5 +1,6 @@
-import 'package:Estimulo/src/modules/weaknesses/pages/comp_info_page.dart';
-import 'package:Estimulo/src/modules/weaknesses/widgets/steps_list_item_widget.dart';
+import 'package:Estimulo/src/modules/weaknesses/pages/company_info/company_info_page.dart';
+import 'package:Estimulo/src/modules/weaknesses/pages/contact/contact_page.dart';
+import 'package:Estimulo/src/modules/weaknesses/pages/weaknesses/widgets/steps_list_item_widget.dart';
 import 'package:Estimulo/src/shared/app_colors.dart';
 import 'package:Estimulo/src/shared/widgets/page_container.dart';
 import 'package:flutter/material.dart';
@@ -16,8 +17,9 @@ class WeaknessesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.transparent,
+      backgroundColor: AppColors.primary,
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
         leading: IconButton(
           icon: Icon(Icons.menu),
           onPressed: () {
@@ -43,7 +45,7 @@ class WeaknessesPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => CompInfoPage(),
+                        builder: (context) => CompanyInfoPage(),
                       ),
                     );
                   },
@@ -51,6 +53,14 @@ class WeaknessesPage extends StatelessWidget {
                 StepsListItemWidget(
                   title: "Contato",
                   percentComplete: "25",
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ContactPage(),
+                      ),
+                    );
+                  },
                 ),
                 StepsListItemWidget(
                   title: "Informações do Negócio",

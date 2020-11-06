@@ -1,4 +1,3 @@
-import 'package:Estimulo/src/modules/login/controllers/create_account_controller.dart';
 import 'package:Estimulo/src/modules/login/pages/create_account/bloc/create_account_bloc.dart';
 import 'package:Estimulo/src/modules/login/view_models/account_viewmodel.dart';
 import 'package:Estimulo/src/shared/app_colors.dart';
@@ -7,12 +6,8 @@ import 'package:Estimulo/src/shared/widgets/text_form_radio_picker.dart';
 import 'package:Estimulo/src/shared/widgets/text_form_required.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get_it/get_it.dart';
 
 class CreateAccountPage extends StatelessWidget {
-  final CreateAccountController _accountController =
-      GetIt.I.get<CreateAccountController>();
-
   final AccountViewModel accountViewModel = AccountViewModel();
 
   @override

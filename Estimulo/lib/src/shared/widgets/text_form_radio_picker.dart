@@ -43,7 +43,13 @@ class TextFormRadioPickerWidget extends StatelessWidget {
       decoration: InputDecoration(
         hintText: hintText,
         labelText: labelText,
-        suffixIcon: suffixIcon,
+        suffixIcon: suffixIcon ??
+            GestureDetector(
+              child: Icon(Icons.arrow_drop_down),
+              onTap: () {
+                _showMaterialRadioPicker(context);
+              },
+            ),
       ),
       onTap: () {
         _showMaterialRadioPicker(context);
