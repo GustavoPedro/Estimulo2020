@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -20,5 +21,7 @@ namespace EstimuloBackEnd.Models
         [ForeignKey("Endereco")]
         public int EnderecoId { get; set; }
         public Address Endereco { get; set; }
+        public List<UserModuleDetails> UsersModulesDetails { get; set; }
+        public Company Empresa{ get; set; }
     }
 }

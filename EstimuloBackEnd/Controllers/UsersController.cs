@@ -22,16 +22,16 @@ namespace EstimuloBackEnd.Controllers
 
         // GET: api/Users
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetUsuarios()
+        public async Task<ActionResult<IEnumerable<User>>> GetUsuario()
         {
-            return await _context.Usuarios.ToListAsync();
+            return await _context.Usuario.ToListAsync();
         }
 
         // GET: api/Users/5
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(int id)
         {
-            var user = await _context.Usuarios.FindAsync(id);
+            var user = await _context.Usuario.FindAsync(id);
 
             if (user == null)
             {
@@ -79,7 +79,7 @@ namespace EstimuloBackEnd.Controllers
         [HttpPost]
         public async Task<ActionResult<User>> PostUser(User user)
         {
-            _context.Usuarios.Add(user);
+            _context.Usuario.Add(user);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetUser", new { id = user.Id }, user);
@@ -89,13 +89,13 @@ namespace EstimuloBackEnd.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<User>> DeleteUser(int id)
         {
-            var user = await _context.Usuarios.FindAsync(id);
+            var user = await _context.Usuario.FindAsync(id);
             if (user == null)
             {
                 return NotFound();
             }
 
-            _context.Usuarios.Remove(user);
+            _context.Usuario.Remove(user);
             await _context.SaveChangesAsync();
 
             return user;
@@ -103,7 +103,7 @@ namespace EstimuloBackEnd.Controllers
 
         private bool UserExists(int id)
         {
-            return _context.Usuarios.Any(e => e.Id == id);
+            return _context.Usuario.Any(e => e.Id == id);
         }
     }
 }

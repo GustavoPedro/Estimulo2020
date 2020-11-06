@@ -64,7 +64,6 @@ namespace EstimuloBackEnd
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
 
             app.UseRouting();
 

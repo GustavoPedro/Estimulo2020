@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using EstimuloBackEnd.Models;
 using EstimuloBackEnd.Services;
+using EstimuloBackEnd.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -22,12 +23,20 @@ namespace EstimuloBackEnd.Controllers
             _context = context;
         }
 
+        [HttpGet]
+        public dynamic Get()
+        {
+            return new
+            {
+                a = "AAAAAAAA"
+            };
+        }
+
         [HttpPost]
         [AllowAnonymous]
-        [Route("login")]
-        public async Task<dynamic> Login([FromBody] User model)
+        public async Task<dynamic> Login([FromBody] UserLoginViewModel model)
         {
-            User usuario = await _context.Usuarios.Where(usr => usr.Email == model.Email && usr.Senha == model.Senha).FirstOrDefaultAsync();
+            User usuario = await _context.Usuario.Where(usr => usr.Email == model.Email && usr.Senha == model.Senha).FirstOrDefaultAsync();
             if (usuario == null)
             {
                 return NotFound(new { message = "Usuário ou senha inválidas" });

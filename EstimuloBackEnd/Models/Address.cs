@@ -22,5 +22,7 @@ namespace EstimuloBackEnd.Models
         [Required]
         public string Numero { get; set; }
         public User Usuario { get; set; }
+
+        public Company Empresa { get; set; }
     }
 }
