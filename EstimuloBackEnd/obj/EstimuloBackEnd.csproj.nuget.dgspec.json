@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\DEV\\flutter_workspace\\Estimulo2020\\EstimuloBackEnd\\EstimuloBackEnd.csproj": {}
+    "c:\\DEV\\flutter_workspace\\Estimulo2020\\EstimuloBackEnd\\EstimuloBackEnd.csproj": {}
   },
   "projects": {
-    "C:\\DEV\\flutter_workspace\\Estimulo2020\\EstimuloBackEnd\\EstimuloBackEnd.csproj": {
+    "c:\\DEV\\flutter_workspace\\Estimulo2020\\EstimuloBackEnd\\EstimuloBackEnd.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\DEV\\flutter_workspace\\Estimulo2020\\EstimuloBackEnd\\EstimuloBackEnd.csproj",
+        "projectUniqueName": "c:\\DEV\\flutter_workspace\\Estimulo2020\\EstimuloBackEnd\\EstimuloBackEnd.csproj",
         "projectName": "EstimuloBackEnd",
-        "projectPath": "C:\\DEV\\flutter_workspace\\Estimulo2020\\EstimuloBackEnd\\EstimuloBackEnd.csproj",
+        "projectPath": "c:\\DEV\\flutter_workspace\\Estimulo2020\\EstimuloBackEnd\\EstimuloBackEnd.csproj",
         "packagesPath": "C:\\Users\\gusta\\.nuget\\packages\\",
-        "outputPath": "C:\\DEV\\flutter_workspace\\Estimulo2020\\EstimuloBackEnd\\obj\\",
+        "outputPath": "c:\\DEV\\flutter_workspace\\Estimulo2020\\EstimuloBackEnd\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

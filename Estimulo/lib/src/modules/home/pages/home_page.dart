@@ -1,10 +1,14 @@
 import 'package:Estimulo/src/modules/businesmonitoring/pages/list_reports_page.dart';
 import 'package:Estimulo/src/modules/login/pages/authentication/bloc/authentication_bloc.dart';
 import 'package:Estimulo/src/modules/specificment/pages/alert_fill_weaknesses_page.dart';
+import 'package:Estimulo/src/modules/training/models/module.dart';
+import 'package:Estimulo/src/modules/training/pages/modules/bloc/module_bloc.dart';
 import 'package:Estimulo/src/modules/training/pages/modules_page.dart';
 import 'package:Estimulo/src/modules/weaknesses/pages/weaknesses/weaknesses_page.dart';
+import 'package:Estimulo/src/shared/repositories/online_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatefulWidget {
@@ -50,7 +54,11 @@ class _HomePage extends State<HomePage> {
   _getDrawerItem(int pos) {
     switch (pos) {
       case 0:
-        return ModulesPage(scaffoldKey: _scaffoldKey);
+        return BlocProvider(
+          create: (context) => ModuleBloc(
+              onlineRepository: GetIt.I.get<OnlineRepository<ModuleModel>>()),
+          child: ModulesPage(scaffoldKey: _scaffoldKey),
+        );
       case 1:
         return WeaknessesPage(scaffoldKey: _scaffoldKey);
       case 2:

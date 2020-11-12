@@ -5,8 +5,8 @@ import 'package:Estimulo/src/shared/repositories/online_repository.dart';
 import 'package:dio/dio.dart';
 
 class AddressRepository extends OnlineRepository<AddressModel> {
-  AddressRepository(Dio dio, JsonAdapter<Model> jsonAdapter, Uri uri)
-      : super(dio, jsonAdapter, uri);
+  AddressRepository(JsonAdapter<Model> jsonAdapter, Uri uri)
+      : super(jsonAdapter, uri);
 
   @override
   Future<List<AddressModel>> getWithFilter(Map<String, String> queryParams,

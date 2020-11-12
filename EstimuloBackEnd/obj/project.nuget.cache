@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oMO5GvMz56oZLqFCYftHI25jPMT5DTCbvb6+ch5pOdSAI0alcilSDE5xlL5IDys31IUyq2eANIFsiVkPr3q6xg==",
+  "dgSpecHash": "EAq5pACZr3IZxzCDqfVYNMXEkTS2RxZKrO02rTsFaDv8ANdlWAEllqijClDfIO7bqaDtMd+T45xpUU34nxt2MQ==",
   "success": true,
-  "projectFilePath": "C:\\DEV\\flutter_workspace\\Estimulo2020\\EstimuloBackEnd\\EstimuloBackEnd.csproj",
+  "projectFilePath": "c:\\DEV\\flutter_workspace\\Estimulo2020\\EstimuloBackEnd\\EstimuloBackEnd.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gusta\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\gusta\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",

@@ -17,14 +17,14 @@ class ModuleContentPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.primary,
       appBar: AppBar(
-        title: Text(moduleModel.moduleName),
+        title: Text(moduleModel.nome),
         centerTitle: true,
       ),
       body: PageContainer(
         child: ListView.builder(
-          itemCount: moduleModel.moduleContents?.length ?? 0,
+          itemCount: moduleModel.moduloDetalhes?.length ?? 0,
           itemBuilder: (context, index) {
-            ModuleContent moduleContent = moduleModel.moduleContents[index];
+            ModuleContent moduleContent = moduleModel.moduloDetalhes[index];
             return ContentListItemWidget(moduleContent: moduleContent);
           },
         ),

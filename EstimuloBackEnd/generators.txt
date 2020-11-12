@@ -1,0 +1,1 @@
+dotnet aspnet-codegenerator controller -name ModulesController -m Module -dc DatabaseContext --relativeFolderPath Controllers -api -async

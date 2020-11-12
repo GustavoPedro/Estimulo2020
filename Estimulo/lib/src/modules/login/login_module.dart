@@ -22,7 +22,6 @@ class LoginModule {
 
     _getIt.registerFactory(
       () => AddressRepository(
-        _getIt.get<Dio>(),
         _getIt.get<AddressAdapter>(),
         Uri.https("viacep.com.br", ""),
       ),

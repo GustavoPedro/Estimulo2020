@@ -5,6 +5,7 @@ class ModuleContent extends Model {
   String type;
   String link;
   String title;
+  String imagem;
 
   ModuleContent({this.moduleId, this.type, this.link, this.title});
 

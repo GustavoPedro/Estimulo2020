@@ -1,5 +1,8 @@
+import 'dart:convert';
+import 'dart:typed_data';
+
 import 'package:Estimulo/src/modules/training/models/module.dart';
-import 'package:Estimulo/src/modules/training/pages/module_content_page.dart';
+import 'package:Estimulo/src/modules/training/pages/modules/module_content_page.dart';
 import 'package:flutter/material.dart';
 
 class ModuleItem extends StatelessWidget {
@@ -22,14 +25,12 @@ class ModuleItem extends StatelessWidget {
             color: Colors.pink,
             child: FittedBox(
               fit: BoxFit.fill,
-              child: Image.network(
-                module.moduleImage,
-              ),
+              child: Image.memory(base64Decode(module.imagem)),
             ),
           ),
           ListTile(
             title: Text(
-              module?.moduleName,
+              module?.nome,
             ),
             trailing: FlatButton(
               textColor: Color(0xFF6200EE),

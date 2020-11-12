@@ -1,21 +1,25 @@
 import 'package:Estimulo/src/shared/adapters/adapter_base.dart';
 import 'package:Estimulo/src/shared/models/model.dart';
 import 'package:dio/dio.dart';
+import 'package:get_it/get_it.dart';
 
 class OnlineRepository<T extends Model> {
   final Dio dio;
   final JsonAdapter jsonAdapter;
   final Uri uri;
 
-  OnlineRepository(this.dio, this.jsonAdapter, this.uri);
+  OnlineRepository(this.jsonAdapter, this.uri) : this.dio = GetIt.I.get<Dio>();
 
   Future<List<T>> get({Map<String, String> queryParams, String path}) async {
     try {
       String url = buildUrl(queryParams: queryParams, path: path);
       Response response = await dio.get(url);
-      return (response.data["member"] as List)
-          .map((e) => jsonAdapter.fromJson(e))
-          .toList();
+      List<T> list = <T>[];
+      List records = (response.data as List);
+      for (var record in records) {
+        list.add(jsonAdapter.fromJson(record));
+      }
+      return list;
     } catch (ex) {
       print(ex.toString());
       rethrow;
@@ -65,9 +69,11 @@ class OnlineRepository<T extends Model> {
 
   String buildUrl({Map<String, String> queryParams, String path}) {
     Uri uri = Uri.http(
-        this.uri.host,
-        path == null || path.isEmpty ? null : path,
-        queryParams == null || queryParams.isEmpty ? null : queryParams);
+        this.uri.host + ":" + this.uri.port.toString(),
+        path == null || path.isEmpty ? this.uri.path : path,
+        queryParams == null || queryParams.isEmpty
+            ? this.uri.queryParameters
+            : queryParams);
     return uri.toString();
   }
 }
