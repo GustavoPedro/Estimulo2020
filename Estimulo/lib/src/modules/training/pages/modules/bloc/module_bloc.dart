@@ -35,24 +35,27 @@ class ModuleBloc extends Bloc<ModuleEvent, ModuleState> {
             nome: "Financeiro",
             imagem:
                 "https://assets.blu365.com.br/uploads/sites/4/2019/09/planejamento-financeiro-semanal.jpg",
-            moduloDetalhes: <ModuleContent>[
-              ModuleContent(
-                moduleId: 1,
-                title: "Teste",
+            moduloDetalhes: <ModuleContentModel>[
+              ModuleContentModel(
+                id: 1,
+                nome: "Teste",
+                descricao: "Testeeee",
                 link: "https://www.youtube.com/watch?v=mNHKNyhSn8I",
-                type: "Video",
+                tipo: "Video",
               ),
-              ModuleContent(
-                moduleId: 1,
-                title: "Teste",
+              ModuleContentModel(
+                id: 2,
+                nome: "Teste",
+                descricao: "Testeeee",
                 link: "https://www.youtube.com/watch?v=mNHKNyhSn8I",
-                type: "Quiz",
+                tipo: "Video",
               ),
-              ModuleContent(
-                moduleId: 1,
-                title: "Teste",
+              ModuleContentModel(
+                id: 3,
+                nome: "Teste",
+                descricao: "Testeeee",
                 link: "https://www.youtube.com/watch?v=mNHKNyhSn8I",
-                type: "Video",
+                tipo: "Video",
               ),
             ],
           ),
@@ -61,24 +64,27 @@ class ModuleBloc extends Bloc<ModuleEvent, ModuleState> {
             nome: "Teste2",
             imagem:
                 "https://assets.blu365.com.br/uploads/sites/4/2019/09/planejamento-financeiro-semanal.jpg",
-            moduloDetalhes: <ModuleContent>[
-              ModuleContent(
-                moduleId: 1,
-                title: "Teste",
+            moduloDetalhes: <ModuleContentModel>[
+              ModuleContentModel(
+                id: 1,
+                nome: "Teste",
+                descricao: "Testeeee",
                 link: "https://www.youtube.com/watch?v=mNHKNyhSn8I",
-                type: "Quiz",
+                tipo: "Video",
               ),
-              ModuleContent(
-                moduleId: 1,
-                title: "Teste",
+              ModuleContentModel(
+                id: 2,
+                nome: "Teste",
+                descricao: "Testeeee",
                 link: "https://www.youtube.com/watch?v=mNHKNyhSn8I",
-                type: "Video",
+                tipo: "Video",
               ),
-              ModuleContent(
-                moduleId: 1,
-                title: "Teste",
+              ModuleContentModel(
+                id: 3,
+                nome: "Teste",
+                descricao: "Testeeee",
                 link: "https://www.youtube.com/watch?v=mNHKNyhSn8I",
-                type: "Video",
+                tipo: "Video",
               ),
             ],
           ),
@@ -86,24 +92,27 @@ class ModuleBloc extends Bloc<ModuleEvent, ModuleState> {
             id: 3,
             nome: "Teste3",
             imagem: "https://picsum.photos/250?imagem=9",
-            moduloDetalhes: <ModuleContent>[
-              ModuleContent(
-                moduleId: 1,
-                title: "Teste",
+            moduloDetalhes: <ModuleContentModel>[
+              ModuleContentModel(
+                id: 1,
+                nome: "Teste",
+                descricao: "Testeeee",
                 link: "https://www.youtube.com/watch?v=mNHKNyhSn8I",
-                type: "Quiz",
+                tipo: "Video",
               ),
-              ModuleContent(
-                moduleId: 1,
-                title: "Teste",
+              ModuleContentModel(
+                id: 2,
+                nome: "Teste",
+                descricao: "Testeeee",
                 link: "https://www.youtube.com/watch?v=mNHKNyhSn8I",
-                type: "Video",
+                tipo: "Video",
               ),
-              ModuleContent(
-                moduleId: 1,
-                title: "Teste",
+              ModuleContentModel(
+                id: 3,
+                nome: "Teste",
+                descricao: "Testeeee",
                 link: "https://www.youtube.com/watch?v=mNHKNyhSn8I",
-                type: "Video",
+                tipo: "Video",
               ),
             ],
           ),

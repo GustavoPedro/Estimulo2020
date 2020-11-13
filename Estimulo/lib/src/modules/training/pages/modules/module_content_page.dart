@@ -9,8 +9,7 @@ import 'package:flutter/material.dart';
 class ModuleContentPage extends StatelessWidget {
   final ModuleModel moduleModel;
 
-  const ModuleContentPage({Key key, @required this.moduleModel})
-      : super(key: key);
+  ModuleContentPage({Key key, @required this.moduleModel}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +23,8 @@ class ModuleContentPage extends StatelessWidget {
         child: ListView.builder(
           itemCount: moduleModel.moduloDetalhes?.length ?? 0,
           itemBuilder: (context, index) {
-            ModuleContent moduleContent = moduleModel.moduloDetalhes[index];
+            ModuleContentModel moduleContent =
+                moduleModel.moduloDetalhes[index];
             return ContentListItemWidget(moduleContent: moduleContent);
           },
         ),

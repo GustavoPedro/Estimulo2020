@@ -1,1 +1,5 @@
 dotnet aspnet-codegenerator controller -name ModulesController -m Module -dc DatabaseContext --relativeFolderPath Controllers -api -async
+
+dotnet ef database update   
+
+dotnet ef migrations add ThirdVersionDatabase

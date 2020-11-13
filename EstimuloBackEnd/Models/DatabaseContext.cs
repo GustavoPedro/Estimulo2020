@@ -33,6 +33,42 @@ namespace EstimuloBackEnd.Models
         {
             base.OnModelCreating(modelBuilder);
 
+              modelBuilder.Entity<ModuleDetails>(
+                options => 
+                {
+                    options.HasIndex(module => module.Nome).IsUnique();
+                    options.HasData(new List<ModuleDetails>(){
+                        new ModuleDetails
+                            {
+                                Id = 1,
+                                Tipo = "Video",
+                                Link = "https://www.youtube.com/watch?v=54-7Y2EWTos",
+                                Nome = "Video 1",
+                                Descricao = "Nesse Video você irá aprender sobre...",
+                                ModuloId = 1,
+                            },
+                        new ModuleDetails
+                            {
+                                Id = 2,
+                                Tipo = "Video",
+                                Link = "https://www.youtube.com/watch?v=_-bt_6Ut8DU",
+                                Nome = "Video 2",
+                                Descricao = "Nesse Video você irá aprender sobre...",
+                                ModuloId = 1,
+                            },
+                             new ModuleDetails
+                            {
+                                Id = 3,
+                                Tipo = "Video",
+                                Link = "https://www.youtube.com/watch?v=SOzdbkGxJB0",
+                                Nome = "Video 3",
+                                Descricao = "Nesse Video você irá aprender sobre...",
+                                ModuloId = 1,
+                            }  
+                    });
+                }
+            );
+
             modelBuilder.Entity<Address>(options => {
                 options.HasOne(a => a.Usuario)
                .WithOne(b => b.Endereco);
@@ -77,7 +113,7 @@ namespace EstimuloBackEnd.Models
                 .WithMany(module => module.UsersModulesDetails);
                 //.OnDelete(DeleteBehavior.Cascade);
             });
-
+            
             modelBuilder.Entity<Module>(options =>
             {             
                 options

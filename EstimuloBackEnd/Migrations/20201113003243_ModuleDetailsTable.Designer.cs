@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EstimuloBackEnd.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20201111234547_ThirdVersionDatabase")]
-    partial class ThirdVersionDatabase
+    [Migration("20201113003243_ModuleDetailsTable")]
+    partial class ModuleDetailsTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -195,14 +195,63 @@ namespace EstimuloBackEnd.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<byte[]>("Arquivo")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("Descricao")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Link")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("ModuloId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Tipo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ModuloId");
 
+                    b.HasIndex("Nome")
+                        .IsUnique();
+
                     b.ToTable("ModuloDetalhes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Descricao = "Nesse Video você irá aprender sobre...",
+                            Link = "https://www.youtube.com/watch?v=54-7Y2EWTos",
+                            ModuloId = 1,
+                            Nome = "Video 1",
+                            Tipo = "Video"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Descricao = "Nesse Video você irá aprender sobre...",
+                            Link = "https://www.youtube.com/watch?v=_-bt_6Ut8DU",
+                            ModuloId = 1,
+                            Nome = "Video 2",
+                            Tipo = "Video"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Descricao = "Nesse Video você irá aprender sobre...",
+                            Link = "https://www.youtube.com/watch?v=SOzdbkGxJB0",
+                            ModuloId = 1,
+                            Nome = "Video 3",
+                            Tipo = "Video"
+                        });
                 });
 
             modelBuilder.Entity("EstimuloBackEnd.Models.Motivation", b =>

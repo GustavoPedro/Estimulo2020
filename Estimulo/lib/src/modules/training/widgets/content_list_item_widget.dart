@@ -1,19 +1,39 @@
 import 'package:Estimulo/src/modules/training/models/module_content.dart';
 import 'package:flutter/material.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-class ContentListItemWidget extends StatelessWidget {
-  final ModuleContent moduleContent;
+class ContentListItemWidget extends StatefulWidget {
+  final ModuleContentModel moduleContent;
 
-  const ContentListItemWidget({
+  ContentListItemWidget({
     Key key,
     @required this.moduleContent,
   }) : super(key: key);
 
+  @override
+  _ContentListItemWidgetState createState() => _ContentListItemWidgetState();
+}
+
+class _ContentListItemWidgetState extends State<ContentListItemWidget> {
+  YoutubePlayerController _controller;
+
+  @override
+  initState() {
+    super.initState();
+    _controller = YoutubePlayerController(
+      initialVideoId: YoutubePlayer.convertUrlToId(widget.moduleContent.link),
+      flags: YoutubePlayerFlags(
+        autoPlay: false,
+        mute: false,
+      ),
+    );
+  }
+
   Widget buildAccessButton() {
     String text = "Acessar Video";
-    if (moduleContent.type == "Video") {
+    if (widget.moduleContent.tipo == "Video") {
       text = "Acessar Video";
-    } else if (moduleContent.type == "Quiz") {
+    } else if (widget.moduleContent.tipo == "Quiz") {
       text = "Responder Quiz";
     }
 
@@ -29,24 +49,6 @@ class ContentListItemWidget extends StatelessWidget {
     );
   }
 
-  Widget buildPositionedIcon() {
-    IconData icon = Icons.play_arrow;
-    if (moduleContent.type == "Video") {
-      icon = Icons.play_arrow;
-    } else if (moduleContent.type == "Quiz") {
-      icon = Icons.help;
-    }
-    return Positioned.fill(
-      child: Align(
-        alignment: Alignment.center,
-        child: Icon(
-          icon,
-          size: 100,
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -56,26 +58,20 @@ class ContentListItemWidget extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       child: Column(
         children: [
-          Stack(
-            children: [
-              Opacity(
-                opacity: 0.4,
-                child: Container(
-                  width: double.infinity,
-                  height: 200,
-                  color: Colors.pink,
-                  child: FittedBox(
-                    fit: BoxFit.fill,
-                    child: Image.network(
-                      "https://assets.blu365.com.br/uploads/sites/4/2019/09/planejamento-financeiro-semanal.jpg",
-                    ),
-                  ),
-                ),
+          Container(
+            padding: EdgeInsets.all(8),
+            width: double.infinity,
+            height: 200,
+            child: YoutubePlayer(
+              controller: _controller,
+              showVideoProgressIndicator: true,
+              progressIndicatorColor: Colors.amber,
+              progressColors: ProgressBarColors(
+                playedColor: Colors.amber,
+                handleColor: Colors.amberAccent,
               ),
-              buildPositionedIcon(),
-            ],
+            ),
           ),
-          buildAccessButton(),
         ],
       ),
     );

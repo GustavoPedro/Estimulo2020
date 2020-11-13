@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EstimuloBackEnd.Migrations
 {
-    public partial class ThirdVersionDatabase : Migration
+    public partial class ModuleDetailsTable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -70,6 +70,11 @@ namespace EstimuloBackEnd.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Tipo = table.Column<string>(nullable: false),
+                    Link = table.Column<string>(nullable: true),
+                    Nome = table.Column<string>(nullable: false),
+                    Descricao = table.Column<string>(nullable: true),
+                    Arquivo = table.Column<byte[]>(nullable: true),
                     ModuloId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -229,6 +234,16 @@ namespace EstimuloBackEnd.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "ModuloDetalhes",
+                columns: new[] { "Id", "Arquivo", "Descricao", "Link", "ModuloId", "Nome", "Tipo" },
+                values: new object[,]
+                {
+                    { 1, null, "Nesse Video você irá aprender sobre...", "https://www.youtube.com/watch?v=54-7Y2EWTos", 1, "Video 1", "Video" },
+                    { 2, null, "Nesse Video você irá aprender sobre...", "https://www.youtube.com/watch?v=_-bt_6Ut8DU", 1, "Video 2", "Video" },
+                    { 3, null, "Nesse Video você irá aprender sobre...", "https://www.youtube.com/watch?v=SOzdbkGxJB0", 1, "Video 3", "Video" }
+                });
+
+            migrationBuilder.InsertData(
                 table: "Usuario",
                 columns: new[] { "Id", "Email", "EnderecoId", "Nome", "Senha", "Telefone" },
                 values: new object[] { 1, "gustavopedrodesouza@hotmail.com", 1, "Gustavo Pedro de Souza", "7227", "3333-2948" });
@@ -271,6 +286,12 @@ namespace EstimuloBackEnd.Migrations
                 name: "IX_ModuloDetalhes_ModuloId",
                 table: "ModuloDetalhes",
                 column: "ModuloId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ModuloDetalhes_Nome",
+                table: "ModuloDetalhes",
+                column: "Nome",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Motivacao_EmpresaId",
