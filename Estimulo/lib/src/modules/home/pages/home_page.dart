@@ -84,7 +84,7 @@ class _HomePage extends State<HomePage> {
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage("lib/assets/images/estimulo2020.jpeg"),
-                    alignment: Alignment.bottomCenter,
+                    alignment: Alignment.topCenter,
                   ),
                 ),
                 child: Text(""),
@@ -123,18 +123,18 @@ class _HomePage extends State<HomePage> {
                 ListTile(
                   leading: Icon(Icons.info),
                   title: Text("Sobre Nós"),
-                  selected: 1 == _selectedIndex,
+                  //selected: 1 == _selectedIndex,
                   onTap: () {
-                    _onSelectItem(1);
+                    // _onSelectItem(1);
                   },
                 ),
                 ListTile(
                   leading: Icon(Icons.person),
                   //title: Text(AppLocalizations.of(context).translate('home')),
                   title: Text("Perfil"),
-                  selected: 0 == _selectedIndex,
+                  //selected: 0 == _selectedIndex,
                   onTap: () {
-                    _onSelectItem(0);
+                    //_onSelectItem(0);
                   },
                 ),
                 ListTile(

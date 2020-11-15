@@ -71,7 +71,21 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
               ),
             ),
             SizedBox(height: 24.0),
-            BlocBuilder<LoginBloc, LoginState>(
+            BlocConsumer<LoginBloc, LoginState>(
+              listener: (context, state) {
+                if (state is LoginFailure) {
+                  Scaffold.of(context).showSnackBar(
+                    SnackBar(
+                      backgroundColor: Colors.red[300],
+                      content: Text(
+                        "Não foi possível realizar o login",
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  );
+                }
+              },
               builder: (context, state) {
                 if (state is LoginInProgress) {
                   return Column(

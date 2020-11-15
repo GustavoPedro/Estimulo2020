@@ -11,6 +11,7 @@ class TextFormWithDecoration extends StatelessWidget {
   final bool obscureText;
   final Widget suffixIcon;
   final TextInputType keyboardType;
+  final int maxLines;
 
   const TextFormWithDecoration({
     Key key,
@@ -24,11 +25,13 @@ class TextFormWithDecoration extends StatelessWidget {
     this.suffixIcon,
     this.onValidate,
     this.keyboardType,
+    this.maxLines,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLines: maxLines,
       controller: textEditingController,
       keyboardType: this.keyboardType ?? TextInputType.text,
       decoration: InputDecoration(

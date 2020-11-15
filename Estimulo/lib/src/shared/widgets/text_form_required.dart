@@ -13,6 +13,7 @@ class TextFormRequired extends StatelessWidget {
   final Widget suffixIcon;
   final String requiredErrorMsg;
   final TextInputType keyboardType;
+  final int maxLines;
 
   const TextFormRequired({
     Key key,
@@ -27,11 +28,13 @@ class TextFormRequired extends StatelessWidget {
     this.onValidate,
     this.requiredErrorMsg,
     this.keyboardType,
+    this.maxLines,
   }) : super();
 
   @override
   Widget build(BuildContext context) {
     return TextFormWithDecoration(
+      maxLines: maxLines,
       keyboardType: this.keyboardType ?? TextInputType.text,
       hintText: hintText,
       initialValue: initialValue,

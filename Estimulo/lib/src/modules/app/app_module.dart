@@ -11,7 +11,7 @@ class AppModule {
     );
     _getIt.registerSingleton<Dio>(
       Dio(
-        BaseOptions(baseUrl: 'http://192.168.1.106:5000/api'),
+        BaseOptions(baseUrl: 'http://192.168.1.101:5000/api'),
       ),
     );
   }

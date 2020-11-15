@@ -16,6 +16,7 @@ class ModuleContentPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.primary,
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
         title: Text(moduleModel.nome),
         centerTitle: true,
       ),
