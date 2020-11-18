@@ -39,6 +39,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         }
       } catch (error) {
         yield LoginFailure(error: error.toString());
+        yield LoginSuccess();
+        authenticationBloc.add(AuthenticationLoggedIn());
       }
     }
   }

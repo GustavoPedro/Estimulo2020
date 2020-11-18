@@ -1,3 +1,4 @@
+import 'package:Estimulo/src/modules/weaknesses/pages/business_info/business_info_page.dart';
 import 'package:Estimulo/src/modules/weaknesses/pages/company_info/company_info_page.dart';
 import 'package:Estimulo/src/modules/weaknesses/pages/contact/contact_page.dart';
 import 'package:Estimulo/src/modules/weaknesses/pages/weaknesses/widgets/steps_list_item_widget.dart';
@@ -65,6 +66,14 @@ class WeaknessesPage extends StatelessWidget {
                 StepsListItemWidget(
                   title: "Informações do Negócio",
                   percentComplete: "100",
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BusinessInfoPage(),
+                      ),
+                    );
+                  },
                 ),
                 StepsListItemWidget(
                   title: "Informações da Pandêmia",

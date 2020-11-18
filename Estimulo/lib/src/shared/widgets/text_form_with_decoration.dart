@@ -31,7 +31,7 @@ class TextFormWithDecoration extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      maxLines: maxLines,
+      maxLines: maxLines ?? 1,
       controller: textEditingController,
       keyboardType: this.keyboardType ?? TextInputType.text,
       decoration: InputDecoration(

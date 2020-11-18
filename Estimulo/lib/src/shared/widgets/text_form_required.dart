@@ -34,7 +34,7 @@ class TextFormRequired extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormWithDecoration(
-      maxLines: maxLines,
+      maxLines: maxLines ?? 1,
       keyboardType: this.keyboardType ?? TextInputType.text,
       hintText: hintText,
       initialValue: initialValue,

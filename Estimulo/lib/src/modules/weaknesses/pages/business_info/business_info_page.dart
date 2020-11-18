@@ -1,5 +1,6 @@
 import 'package:Estimulo/src/shared/app_colors.dart';
 import 'package:Estimulo/src/shared/widgets/page_container.dart';
+import 'package:Estimulo/src/shared/widgets/text_form_radio_picker.dart';
 import 'package:Estimulo/src/shared/widgets/text_form_required.dart';
 import 'package:flutter/material.dart';
 
@@ -20,46 +21,33 @@ class BusinessInfoPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  TextFormRequired(
-                    labelText: "Cep",
-                    requiredErrorMsg: "Preencha o Cep",
+                  SizedBox(
+                    height: 20,
                   ),
+                  Text("Numero de Funcionários Antes da Crise:"),
                   TextFormRequired(
-                    labelText: "Rua",
-                    requiredErrorMsg: "Preencha a Rua",
+                    labelText: "Sua Resposta",
+                    requiredErrorMsg: "Campo Obrigatório",
                   ),
-                  TextFormRequired(
-                    labelText: "Número",
-                    requiredErrorMsg: "Preencha o Número",
+                  SizedBox(
+                    height: 20,
                   ),
-                  TextFormRequired(
-                    labelText: "Bairro",
-                    requiredErrorMsg: "Preencha o Bairro",
+                  Text("Faturamento Mensal Antes da Crise"),
+                  TextFormRadioPickerWidget(
+                    labelText: "Sua Resposta",
+                    options: [
+                      "30mil a 90mil",
+                      "90mil a 150mil",
+                      "150mil a 210mil",
+                      "210mil a 270mil",
+                    ],
                   ),
+                  Text("Faturamento Mensal Antes da Crise"),
                   TextFormRequired(
-                    labelText: "Complemento",
-                    requiredErrorMsg: "Preencha o Complemento",
-                  ),
-                  TextFormRequired(
-                    labelText: "Cidade",
-                    requiredErrorMsg: "Preencha a Cidade",
-                  ),
-                  TextFormRequired(
-                    labelText: "UF",
-                    requiredErrorMsg: "Preencha a UF",
-                  ),
-                  TextFormRequired(
-                    labelText: "Telefone Comercial",
-                    requiredErrorMsg: "Preencha o Telefone Comercial",
-                  ),
-                  TextFormRequired(
-                    labelText: "Email",
-                    requiredErrorMsg: "Preencha o Email",
-                  ),
-                  TextFormRequired(
-                    labelText: "Site/Rede Social",
-                    requiredErrorMsg: "Preencha o Site/Rede Social",
+                    labelText: "Sua Resposta",
+                    requiredErrorMsg: "Campo Obrigatório",
                   ),
                 ],
               ),
