@@ -1,10 +1,13 @@
 import 'package:Estimulo/src/modules/weaknesses/pages/business_info/business_info_page.dart';
 import 'package:Estimulo/src/modules/weaknesses/pages/company_info/company_info_page.dart';
 import 'package:Estimulo/src/modules/weaknesses/pages/contact/contact_page.dart';
+import 'package:Estimulo/src/modules/weaknesses/pages/pandemic/bloc/pandemic_bloc.dart';
+import 'package:Estimulo/src/modules/weaknesses/pages/pandemic/pandemic_info.dart';
 import 'package:Estimulo/src/modules/weaknesses/pages/weaknesses/widgets/steps_list_item_widget.dart';
 import 'package:Estimulo/src/shared/app_colors.dart';
 import 'package:Estimulo/src/shared/widgets/page_container.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WeaknessesPage extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scaffoldKey;
@@ -78,6 +81,17 @@ class WeaknessesPage extends StatelessWidget {
                 StepsListItemWidget(
                   title: "Informações da Pandêmia",
                   percentComplete: "25",
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BlocProvider(
+                          create: (context) => PandemicBloc(),
+                          child: PandemicInfo(),
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ],
             ),
