@@ -15,7 +15,7 @@ class TrainingModule {
     _getIt.registerFactory(
       () => OnlineRepository<ModuleModel>(
         _getIt.get<ModuleAdapter>(),
-        Uri(host: "192.168.1.103", port: 5000, path: "/api/Modules"),
+        Uri(host: "192.168.1.104", port: 5000, path: "/api/Modules"),
       ),
     );
   }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pratica_30_10/23/produto.dart';
+import './produto.dart';
 
 class ProdutoDetalhes extends StatelessWidget {
   final Produto produtoSelecionado;

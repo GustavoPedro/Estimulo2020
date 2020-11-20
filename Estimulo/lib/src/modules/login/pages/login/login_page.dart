@@ -43,8 +43,10 @@ class LoginPage extends StatelessWidget {
                         BlocProvider.of<AuthenticationBloc>(context),
                     repository: GetIt.instance.get<LoginRepository>(),
                   ),
-                  child: LoginFormWidget(
-                    formKey: _formKey,
+                  child: Center(
+                    child: LoginFormWidget(
+                      formKey: _formKey,
+                    ),
                   ),
                 ),
               ),

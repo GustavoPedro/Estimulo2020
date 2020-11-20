@@ -1,3 +1,4 @@
+import 'package:Estimulo/src/modules/weaknesses/pages/weaknesses/weaknesses_page.dart';
 import 'package:Estimulo/src/shared/app_colors.dart';
 import 'package:Estimulo/src/shared/widgets/page_container.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +38,14 @@ class AlertFillWeaknessesPage extends StatelessWidget {
                 child: RaisedButton(
                   padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
                   color: AppColors.terciary,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => WeaknessesPage(scaffoldKey: null),
+                      ),
+                    );
+                  },
                   child: Text(
                     'Vamos Lá',
                     style: TextStyle(

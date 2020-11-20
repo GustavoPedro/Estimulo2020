@@ -12,7 +12,10 @@ class PandemicInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.primary,
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        centerTitle: true,
         title: Text("Informações Pandemia"),
       ),
       body: BlocBuilder<PandemicBloc, PandemicState>(

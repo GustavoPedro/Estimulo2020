@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pratica_30_10/23/produto.dart';
-import 'package:pratica_30_10/23/produto_menu.dart';
+import './produto.dart';
+import './produto_menu.dart';
 
 class SegundaRota extends StatefulWidget {
   @override

@@ -34,6 +34,7 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
       child: Padding(
         padding: EdgeInsets.only(left: 24.0, right: 24.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             SizedBox(height: 48.0),
             Center(

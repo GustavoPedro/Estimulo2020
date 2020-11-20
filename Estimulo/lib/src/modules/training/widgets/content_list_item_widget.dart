@@ -58,6 +58,18 @@ class _ContentListItemWidgetState extends State<ContentListItemWidget> {
       clipBehavior: Clip.antiAlias,
       child: Column(
         children: [
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            widget.moduleContent.nome,
+            style: TextStyle(
+              fontSize: 24,
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
           Container(
             padding: EdgeInsets.all(8),
             width: double.infinity,

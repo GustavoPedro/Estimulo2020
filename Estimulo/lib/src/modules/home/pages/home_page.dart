@@ -84,7 +84,7 @@ class _HomePage extends State<HomePage> {
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage("lib/assets/images/estimulo2020.jpeg"),
-                    alignment: Alignment.topCenter,
+                    alignment: Alignment.center,
                   ),
                 ),
                 child: Text(""),
@@ -123,7 +123,7 @@ class _HomePage extends State<HomePage> {
                 ListTile(
                   leading: Icon(Icons.info),
                   title: Text("Sobre Nós"),
-                  //selected: 1 == _selectedIndex,
+                  selected: 3 == _selectedIndex,
                   onTap: () {
                     // _onSelectItem(1);
                   },
@@ -132,7 +132,7 @@ class _HomePage extends State<HomePage> {
                   leading: Icon(Icons.person),
                   //title: Text(AppLocalizations.of(context).translate('home')),
                   title: Text("Perfil"),
-                  //selected: 0 == _selectedIndex,
+                  selected: 4 == _selectedIndex,
                   onTap: () {
                     //_onSelectItem(0);
                   },
@@ -140,7 +140,7 @@ class _HomePage extends State<HomePage> {
                 ListTile(
                   leading: Icon(Icons.exit_to_app),
                   title: Text("Sair"),
-                  selected: 2 == _selectedIndex,
+                  selected: 5 == _selectedIndex,
                   onTap: () {
                     BlocProvider.of<AuthenticationBloc>(context).add(
                       AuthenticationLoggedOut(),

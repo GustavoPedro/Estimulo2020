@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pratica_30_10/23/produto.dart';
-import 'package:pratica_30_10/23/produto_detalhes.dart';
-import 'package:pratica_30_10/23/segunda_rota.dart';
+import './produto.dart';
+import './produto_detalhes.dart';
+import './segunda_rota.dart';
 
 class PrimeiraRota extends StatefulWidget {
   @override
@@ -13,7 +13,7 @@ class PrimeiraRotaState extends State<PrimeiraRota> {
   void adicionarProdutoNaLista(Produto produto) {
     setState(
       () {
-        produtos.insert(0, produto);
+        produtos.add(produto);
       },
     );
   }
