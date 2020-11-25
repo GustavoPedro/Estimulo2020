@@ -20,8 +20,8 @@ class LoginRepository {
 
   Future<bool> signIn({String username, String password}) async {
     try {
-      var response = await _dio
-          .post('/auth', data: {"email": username, "senha": password});
+      var response = await _dio.post('http://192.168.1.106:5000/api/Auth',
+          data: {"email": username, "senha": password});
       if (response?.statusCode == 200) {
         String userName = response.data["user"]["Nome"];
         String token = response.data["token"];

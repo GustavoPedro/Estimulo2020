@@ -10,9 +10,7 @@ class AppModule {
       SessionModel(),
     );
     _getIt.registerSingleton<Dio>(
-      Dio(
-        BaseOptions(baseUrl: 'http://192.168.1.104:5000/api'),
-      ),
+      Dio(),
     );
   }
 }

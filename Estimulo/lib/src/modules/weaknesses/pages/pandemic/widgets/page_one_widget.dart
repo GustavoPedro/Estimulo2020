@@ -2,10 +2,10 @@ import 'package:Estimulo/src/shared/widgets/text_form_radio_picker.dart';
 import 'package:Estimulo/src/shared/widgets/text_form_with_decoration.dart';
 import 'package:flutter/material.dart';
 
-class PageOne extends StatelessWidget {
+class PageOneWidget extends StatelessWidget {
   final TextEditingController recebeuAlgumEmprestimo;
 
-  const PageOne({Key key, this.recebeuAlgumEmprestimo}) : super(key: key);
+  const PageOneWidget({Key key, this.recebeuAlgumEmprestimo}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

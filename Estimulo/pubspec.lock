@@ -279,13 +279,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.7.4"
-  flutter_mobx:
-    dependency: "direct main"
-    description:
-      name: flutter_mobx
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.1.0+2"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -409,7 +402,7 @@ packages:
     source: hosted
     version: "0.9.7"
   mobx:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: mobx
       url: "https://pub.dartlang.org"
@@ -770,6 +763,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.0"
+  webview_flutter:
+    dependency: "direct main"
+    description:
+      name: webview_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.7"
   win32:
     dependency: transitive
     description:
@@ -800,4 +800,4 @@ packages:
     version: "7.0.0+7"
 sdks:
   dart: ">=2.10.0-110 <2.11.0"
-  flutter: ">=1.16.0 <2.0.0"
+  flutter: ">=1.22.0 <2.0.0"

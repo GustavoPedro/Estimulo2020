@@ -1,5 +1,7 @@
+import 'package:Estimulo/src/modules/about/pages/about_page.dart';
 import 'package:Estimulo/src/modules/businesmonitoring/pages/list_reports_page.dart';
 import 'package:Estimulo/src/modules/login/pages/authentication/bloc/authentication_bloc.dart';
+import 'package:Estimulo/src/modules/login/pages/profile/profile_page.dart';
 import 'package:Estimulo/src/modules/specificment/pages/alert_fill_weaknesses_page.dart';
 import 'package:Estimulo/src/modules/training/models/module.dart';
 import 'package:Estimulo/src/modules/training/pages/modules/bloc/module_bloc.dart';
@@ -63,6 +65,14 @@ class _HomePage extends State<HomePage> {
         return WeaknessesPage(scaffoldKey: _scaffoldKey);
       case 2:
         return ListReportsPage(scaffoldKey: _scaffoldKey);
+      case 3:
+        return AboutPage(
+          scaffoldKey: _scaffoldKey,
+        );
+      case 4:
+        return ProfilePage(
+          scaffoldKey: _scaffoldKey,
+        );
     }
   }
 
@@ -125,7 +135,7 @@ class _HomePage extends State<HomePage> {
                   title: Text("Sobre Nós"),
                   selected: 3 == _selectedIndex,
                   onTap: () {
-                    // _onSelectItem(1);
+                    _onSelectItem(3);
                   },
                 ),
                 ListTile(
@@ -134,7 +144,7 @@ class _HomePage extends State<HomePage> {
                   title: Text("Perfil"),
                   selected: 4 == _selectedIndex,
                   onTap: () {
-                    //_onSelectItem(0);
+                    _onSelectItem(4);
                   },
                 ),
                 ListTile(

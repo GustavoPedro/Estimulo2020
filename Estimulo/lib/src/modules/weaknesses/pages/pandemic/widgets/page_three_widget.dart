@@ -2,8 +2,8 @@ import 'package:Estimulo/src/shared/widgets/text_form_radio_picker.dart';
 import 'package:Estimulo/src/shared/widgets/text_form_with_decoration.dart';
 import 'package:flutter/material.dart';
 
-class PageThree extends StatelessWidget {
-  const PageThree({Key key}) : super(key: key);
+class PageThreeWidget extends StatelessWidget {
+  const PageThreeWidget({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

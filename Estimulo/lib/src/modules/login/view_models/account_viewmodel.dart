@@ -11,4 +11,28 @@ class AccountViewModel {
   TextEditingController cidade = TextEditingController();
   TextEditingController uf = TextEditingController();
   TextEditingController numero = TextEditingController();
+
+  AccountViewModel({
+    String nome,
+    String telefone,
+    String email,
+    String senha,
+    String cep,
+    String rua,
+    String bairro,
+    String cidade,
+    String uf,
+    String numero,
+  }) {
+    this.nome.text = nome;
+    this.telefone.text = telefone;
+    this.email.text = email;
+    this.senha.text = senha;
+    this.cep.text = cep;
+    this.rua.text = rua;
+    this.bairro.text = bairro;
+    this.cidade.text = cidade;
+    this.uf.text = uf;
+    this.numero.text = numero;
+  }
 }

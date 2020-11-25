@@ -7,17 +7,38 @@ import 'package:Estimulo/src/shared/widgets/text_form_required.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CreateAccountPage extends StatelessWidget {
-  final AccountViewModel accountViewModel = AccountViewModel();
+class ProfilePage extends StatelessWidget {
+  final GlobalKey<ScaffoldState> _scaffoldKey;
+  final AccountViewModel accountViewModel = AccountViewModel(
+    nome: "Gustavo",
+    uf: "MG",
+    bairro: "Bandeirantes",
+    cep: "32240410",
+    cidade: "Contagem",
+    email: "gustavopedrodesouza@hotmail.com",
+    numero: "121",
+    rua: "Rua dos Franciscanos",
+    telefone: "3333-8383",
+  );
+
+  ProfilePage({Key key, @required GlobalKey<ScaffoldState> scaffoldKey})
+      : this._scaffoldKey = scaffoldKey,
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primary,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        leading: IconButton(
+          icon: Icon(Icons.menu),
+          onPressed: () {
+            _scaffoldKey.currentState.openDrawer();
+          },
+        ),
         centerTitle: true,
-        title: Text("Cadastro"),
+        backgroundColor: Colors.transparent,
+        title: Text("Perfil"),
       ),
       body: PageContainer(
         child: SingleChildScrollView(
@@ -79,16 +100,6 @@ class CreateAccountPage extends StatelessWidget {
                     textEditingController: accountViewModel.email,
                     labelText: "E-mail",
                     requiredErrorMsg: "Preencha o E-mail",
-                  ),
-                  TextFormRequired(
-                    textEditingController: accountViewModel.email,
-                    labelText: "Senha",
-                    requiredErrorMsg: "Preencha a Senha",
-                  ),
-                  TextFormRequired(
-                    textEditingController: accountViewModel.email,
-                    labelText: "Confirmar Senha",
-                    requiredErrorMsg: "Confirme a Senha",
                   ),
                 ],
               ),

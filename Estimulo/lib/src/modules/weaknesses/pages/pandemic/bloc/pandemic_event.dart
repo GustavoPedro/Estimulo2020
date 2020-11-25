@@ -6,3 +6,9 @@ abstract class PandemicEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class NextForm extends PandemicEvent {}
+
+class PreviousForm extends PandemicEvent {}
+
+class SaveForm extends PandemicEvent {}
