@@ -6,4 +6,4 @@ Para executar o aplicativo basta executar os seguintes comandos
 
 # Funcionalidades do aplicativo:
 
-![Informações da Empresa](https://github.com/GustavoPedro/Estimulo2020/Estimulo/imgs_readme/comp_info.png)
+![Informações da Empresa](https://github.com/GustavoPedro/Estimulo2020/tree/master/Estimulo/imgs_readme/comp_info.png)
