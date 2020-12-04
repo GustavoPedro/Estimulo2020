@@ -40,18 +40,6 @@ class _HomePage extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-
-    isFirstTime().then((value) {
-      if (value) {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) =>
-                AlertFillWeaknessesPage(scaffoldkey: _scaffoldKey),
-          ),
-        );
-      }
-    });
   }
 
   _getDrawerItem(int pos) {
