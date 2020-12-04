@@ -4,6 +4,10 @@ import 'package:Estimulo/src/shared/widgets/page_container.dart';
 import 'package:flutter/material.dart';
 
 class AlertFillWeaknessesPage extends StatelessWidget {
+  final scaffoldkey;
+
+  const AlertFillWeaknessesPage({Key key, this.scaffoldkey}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +46,8 @@ class AlertFillWeaknessesPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => WeaknessesPage(scaffoldKey: null),
+                        builder: (context) =>
+                            WeaknessesPage(scaffoldKey: scaffoldkey),
                       ),
                     );
                   },

@@ -46,7 +46,8 @@ class _HomePage extends State<HomePage> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => AlertFillWeaknessesPage(),
+            builder: (context) =>
+                AlertFillWeaknessesPage(scaffoldkey: _scaffoldKey),
           ),
         );
       }

@@ -19,10 +19,10 @@ class AddressRepository extends OnlineRepository<AddressModel> {
         print("NACEP");
       }
       addressModel.add(jsonAdapter.fromJson(response.data));
-      return addressModel;
     } catch (ex) {
       print(ex);
     }
+    return addressModel;
   }
 
   @override

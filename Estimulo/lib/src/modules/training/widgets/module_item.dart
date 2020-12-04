@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:typed_data';
 
 import 'package:Estimulo/src/modules/training/models/module.dart';
 import 'package:Estimulo/src/modules/training/pages/modules/module_content_page.dart';

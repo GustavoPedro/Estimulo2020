@@ -1,10 +1,7 @@
 import 'package:Estimulo/src/modules/home/pages/home_page.dart';
 import 'package:Estimulo/src/modules/login/pages/authentication/bloc/authentication_bloc.dart';
-import 'package:Estimulo/src/modules/login/pages/login/bloc/login_bloc.dart';
-import 'package:Estimulo/src/modules/login/repository/login_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get_it/get_it.dart';
 
 import '../login/login_page.dart';
 
