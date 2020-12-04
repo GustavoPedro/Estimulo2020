@@ -8,7 +8,9 @@
   Projeto desenvolvido pelos alunos do Centro Universitário UNA.  
 </h4>
 
-![Print Aplicativo](https://github.com/GustavoPedro/Estimulo2020/blob/master/Estimulo/imgs_readme/app.png)
+<p align="center">
+  <img src="https://github.com/GustavoPedro/Estimulo2020/blob/master/Estimulo/imgs_readme/app.png?raw=true">
+</p>
 
 ## Tecnologias
 Projeto desenvolvido durante o semestre 2020/2, utilizando as seguintes técnologias:
