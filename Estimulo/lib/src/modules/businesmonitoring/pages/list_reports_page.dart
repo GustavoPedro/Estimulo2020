@@ -16,12 +16,12 @@ class ListReportsPage extends StatelessWidget {
       userName: "Gustavo",
     ),
     ReportModel(
-      dateReport: DateTime.now(),
+      dateReport: DateTime.now().add(Duration(days: 50)),
       status: "Em andamento",
       userName: "Gustavo",
     ),
     ReportModel(
-      dateReport: DateTime.now(),
+      dateReport: DateTime.now().add(Duration(days: 100)),
       status: "Respondido",
       userName: "Gustavo",
     ),

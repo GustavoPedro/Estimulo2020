@@ -10,7 +10,7 @@ class AppModule {
       SessionModel(),
     );
     _getIt.registerSingleton<Dio>(
-      Dio(),
+      Dio(BaseOptions(connectTimeout: 3000)),
     );
   }
 }
